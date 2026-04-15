@@ -1,0 +1,25 @@
+# Virtual Machine Python
+.venv/
+venv/
+env/
+
+# Bytecode Python
+__pycache__/
+*.pyc
+
+# (Weights)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Datasets
+AMBER/image/
+AMBER/run_log.txt
+
+# Environment variables
+.env
+
+# Cache model
+.cache/
+cache/
