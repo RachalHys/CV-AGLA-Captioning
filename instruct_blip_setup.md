@@ -64,6 +64,12 @@ nltk.download('wordnet')
 
 ---
 
+## 4. Convert Amber query to Model format (ONLY IF NEEDED. THE FILE IS ALREADY CREATED)
+
+```bash
+python convert.py --input AMBER/data/query/query_generative.json --output AMBER/amber_generative.jsonl --num 500 --shuffle
+```
+
 ## 4. Run Inference (InstructBLIP 7B)
 
 ```bash
