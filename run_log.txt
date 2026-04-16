@@ -1,0 +1,22 @@
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/fairscale/experimental/nn/offload.py:19: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  return torch.cuda.amp.custom_fwd(orig_func)  # type: ignore
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/fairscale/experimental/nn/offload.py:30: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  return torch.cuda.amp.custom_bwd(orig_func)  # type: ignore
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/diffusers/models/cross_attention.py:30: FutureWarning: Importing from cross_attention is deprecated. Please import from diffusers.models.attention_processor instead.
+  deprecate(
+/home/rachal/projects/CV-AGLA-Improvement/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+Using Single-GPU Mode
+⚙️ Loading model with precision: BF16
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:10<00:10, 10.67s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.75s/it]
+Loading BLIP-ITM model...
+📊 Running full evaluation on all 1004 questions.
+  0%|          | 0/1004 [00:00<?, ?it/s]  0%|          | 1/1004 [00:16<4:31:09, 16.22s/it]  0%|          | 2/1004 [00:30<4:10:17, 14.99s/it]  0%|          | 3/1004 [00:40<3:29:44, 12.57s/it]  0%|          | 4/1004 [00:50<3:16:01, 11.76s/it]  0%|          | 5/1004 [01:04<3:26:49, 12.42s/it]  1%|          | 6/1004 [01:19<3:45:00, 13.53s/it]  1%|          | 7/1004 [01:33<3:47:13, 13.67s/it]  1%|          | 8/1004 [01:46<3:42:41, 13.42s/it]  1%|          | 9/1004 [01:57<3:31:33, 12.76s/it]  1%|          | 10/1004 [02:08<3:20:21, 12.09s/it]  1%|          | 11/1004 [02:23<3:35:50, 13.04s/it]  1%|          | 12/1004 [02:35<3:28:04, 12.58s/it]  1%|▏         | 13/1004 [02:51<3:45:54, 13.68s/it]  1%|▏         | 14/1004 [03:06<3:50:38, 13.98s/it]  1%|▏         | 15/1004 [03:15<3:26:10, 12.51s/it]  2%|▏         | 16/1004 [03:25<3:16:42, 11.95s/it]  2%|▏         | 17/1004 [03:40<3:28:25, 12.67s/it]  2%|▏         | 18/1004 [03:57<3:48:33, 13.91s/it]  2%|▏         | 19/1004 [04:12<3:54:25, 14.28s/it]

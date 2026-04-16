@@ -6,19 +6,18 @@ from tqdm import tqdm
 import sys
 # os.environ['http_proxy'] = 'http://202.117.43.244:10007'
 # os.environ['https_proxy'] = 'http://202.117.43.244:10007'
-
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.environ["HF_HOME"] = os.path.join(PROJECT_ROOT, ".cache", "huggingface")
-os.environ["TORCH_HOME"] = os.path.join(PROJECT_ROOT, ".cache", "torch")
-
 EVAL_DIR = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.dirname(EVAL_DIR)
-if REPO_ROOT in sys.path:
-    sys.path.remove(REPO_ROOT)
-sys.path.insert(0, REPO_ROOT)
-if EVAL_DIR in sys.path:
-    sys.path.remove(EVAL_DIR)
-sys.path.insert(0, EVAL_DIR)
+PROJECT_ROOT = os.path.dirname(EVAL_DIR)
+
+# 2. Setup Cache
+os.environ.setdefault("HF_HOME",    os.path.join(PROJECT_ROOT, ".cache", "huggingface"))
+os.environ.setdefault("TORCH_HOME", os.path.join(PROJECT_ROOT, ".cache", "torch"))
+
+# 3. Setup sys.path để import an toàn
+for path in [PROJECT_ROOT, EVAL_DIR]:
+    if path in sys.path:
+        sys.path.remove(path)
+    sys.path.insert(0, path)
 
 from transformers import set_seed
 from llava.utils import disable_torch_init
@@ -56,6 +55,7 @@ def eval_model(args):
     answers_file = os.path.expanduser(args.answers_file)
     os.makedirs(os.path.dirname(answers_file), exist_ok=True)
     ans_file = open(answers_file, "w")
+    CYCLE = 25 # flush the file every 25 lines to avoid data loss in case of crashes
 
     # model_class = registry.get_model_class('blip_image_text_matching')
     # model_class.PRETRAINED_MODEL_CONFIG_DICT['large'] = '/workspace/model/blip_itm_large/blip_itm_large.yaml' 
@@ -109,13 +109,13 @@ def eval_model(args):
 
 
         outputs = outputs[0]
-        ans_file.write(json.dumps({"question_id": idx,
-                                   "prompt": prompt,
-                                   "text": outputs,
-                                   "model_id": "instruct_blip",
-                                   "image": image_file,
-                                   "metadata": {}}) + "\n")
-        CYCLE = 50 # flush the file every 50 lines to avoid data loss in case of crashes
+        ans_file.write(json.dumps({
+            "id": idx,
+            "prompt": prompt,
+            "response": outputs,
+            "image": image_file,
+        }, ensure_ascii=False) + "\n")
+        
         if (i + 1) % CYCLE == 0:
             ans_file.flush()
         

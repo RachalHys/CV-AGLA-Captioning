@@ -170,7 +170,7 @@ def main(args):
                     "image": inference_data[i].get("image", f"AMBER_{id}.jpg"),
                     "response": inference_data[i]['response'],
                     "hallucination_count": hallucination_count,
-                    "hallucinated_nouns": [after_process_nouns[k] for k in range(len(safe_flag_list)) if safe_flag_list[k] == 1]
+                    "hallucinated_nouns": list(dict.fromkeys(after_process_nouns[k].lower().strip() for k in range(len(safe_flag_list)) if safe_flag_list[k] == 1))
                 })
 
             metrics['chair_score'] += sum(safe_flag_list)

@@ -24,6 +24,10 @@ from llava.constants import DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN, D
 
 
 def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False, device_map="auto", device="cuda", **kwargs):    
+    has_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    _compute_dtype = torch.bfloat16 if has_bf16 else torch.float16
+    _model_dtype = kwargs.get("torch_dtype", _compute_dtype)
+
     kwargs.update({"device_map": device_map})
 
     if load_8bit:
@@ -32,12 +36,16 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         kwargs['load_in_4bit'] = True
         kwargs['quantization_config'] = BitsAndBytesConfig(
             load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_compute_dtype=_compute_dtype,
             bnb_4bit_use_double_quant=True,
             bnb_4bit_quant_type='nf4'
         )
+        if "torch_dtype" not in kwargs:
+            kwargs["torch_dtype"] = _compute_dtype
     else:
-        kwargs['torch_dtype'] = torch.float16
+        #  only set torch_dtype when caller did NOT provide one.
+        if "torch_dtype" not in kwargs:
+            kwargs["torch_dtype"] = _model_dtype
 
     if 'llava' in model_name.lower():
         # Load LLaVA model
@@ -92,7 +100,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
 
             mm_projector_weights = torch.load(os.path.join(model_path, 'mm_projector.bin'), map_location='cpu')
-            mm_projector_weights = {k: v.to(torch.float16) for k, v in mm_projector_weights.items()}
+            mm_projector_weights = {k: v.to(_model_dtype) for k, v in mm_projector_weights.items()}
             model.load_state_dict(mm_projector_weights, strict=False)
         else:
             if 'mpt' in model_name.lower():
@@ -107,13 +115,13 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             # PEFT model
             from peft import PeftModel
             tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
-            model = AutoModelForCausalLM.from_pretrained(model_base, torch_dtype=torch.float16, low_cpu_mem_usage=True, device_map="auto")
+            model = AutoModelForCausalLM.from_pretrained(model_base, torch_dtype=_model_dtype, low_cpu_mem_usage=True, device_map="auto")
             print(f"Loading LoRA weights from {model_path}")
             model = PeftModel.from_pretrained(model, model_path)
             print(f"Merging weights")
             model = model.merge_and_unload()
-            print('Convert to FP16...')
-            model.to(torch.float16)
+            print(f"Convert to {_model_dtype}...")
+            model.to(_model_dtype)
         else:
             use_fast = False
             if 'mpt' in model_name.lower():

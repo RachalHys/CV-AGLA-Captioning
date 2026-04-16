@@ -65,44 +65,61 @@ nltk.download('wordnet')
 ---
 
 ## 4. Convert Amber query to Model format (ONLY IF NEEDED. THE FILE IS ALREADY CREATED)
-
+* You should go to AMBER folder first then run this CLI
 ```bash
-python convert.py --input AMBER/data/query/query_generative.json --output AMBER/amber_generative.jsonl --num 500 --shuffle
+python convert.py --input data/query/query_generative.json --output amber_generative.jsonl --num 500 --shuffle
 ```
 
-## 4. Run Inference (InstructBLIP 7B)
+## 4.1 Run Inference (InstructBLIP 7B)
+* base for small AGLA version. large for normal agla version
 
 ```bash
 python eval/run_instructblip.py \
     --model-type vicuna7b \
     --image-folder AMBER/image \
     --question-file AMBER/amber_generative.jsonl \
-    --answers-file AMBER/amber_generative_7b_output.jsonl \
+    --answers-file AMBER/amber_instructblip7b_small_output.jsonl \
     --max-new-tokens 512 \
     --num-beams 1 \
     --no-one-word-answer \
     --use_agla \
+    --agla-size base \ 
+    2>&1 | tee run_log.txt
+```
+
+## 4.2 Run Inference (LLaVA 1.5 7B)
+
+```bash
+python eval/run_llava.py \
+    --image-folder AMBER/image \
+    --question-file AMBER/amber_generative.jsonl \
+    --answers-file AMBER/amber_llava_small_output.jsonl \
+    --use_agla \
     --agla-size base \
-    2>&1 | tee AMBER/run_log.txt
+    --precision fp16 \
+    --max-new-tokens 512 \
+    2>&1 | tee run_log.txt
 ```
 
 ---
 
-## 5. Convert Output to AMBER Format
 
+
+## 5. Convert Output to AMBER Format
+* You should go to AMBER folder first then run this CLI
 ```bash
-python AMBER/convert_amber_eval.py \
-    --input AMBER/amber_generative_7b_output.jsonl \
-    --output AMBER/amber_eval.json
+python convert_amber_eval.py \
+    --input amber_instructblip7b_small_output.jsonl \
+    --output amber_eval.json
 ```
 
 ---
 
 ## 6. Run AMBER Evaluation
-
+* You should go to AMBER folder first then run this CLI
 ```bash
-python AMBER/inference.py \
-    --inference_data AMBER/amber_eval.json \
+python inference.py \
+    --inference_data amber_eval.json \
     --evaluation_type g \
     --top_k 20
 ```
