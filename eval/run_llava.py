@@ -25,8 +25,8 @@ from PIL import Image
 from transformers import set_seed
 from sample import evolve_agla_sampling
 evolve_agla_sampling()
-from augmentation import augmentation
-from lavis.models import load_model_and_preprocess
+from inventory_detector import BLIPInventoryDetector
+from augmentation import YoloSamAugmenter
 from torchvision import transforms
 
 def eval_model(args):
@@ -71,11 +71,15 @@ def eval_model(args):
     vision_tower = model.get_vision_tower()
     vt_device = next(vision_tower.parameters()).device
     runtime_dtype_itm = torch.bfloat16 if has_bf16 else torch.float16
-    print("Loading BLIP-ITM model...")
-    model_itm, vis_processors, text_processors = load_model_and_preprocess("blip_image_text_matching", args.agla_size, device=device_blip, is_eval=True,)
-    model_itm.to(runtime_dtype_itm) # Cast model_itm to correct dtype
-
-    model_itm.requires_grad_(False) # Disable weight gradients — GradCAM only needs activation grad
+    
+    # --- LOAD BLIP VQA & YOLO-SAM ---
+    if args.use_agla:
+        print("Loading BLIP Inventory and YOLO-SAM Augmenter...")
+        inventory_detector = BLIPInventoryDetector(device=device_blip)
+        augmenter = YoloSamAugmenter(device=device_blip)
+    else:
+        inventory_detector = None
+        augmenter = None
 
     # Defragment CUDA allocator after loading two large models
     if torch.cuda.is_available():
@@ -123,17 +127,18 @@ def eval_model(args):
         raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
         
         if args.use_agla:
-            tensor_image = loader(raw_image.resize((384,384))).float()
-            # Cast to correct dtype for BLIP-ITM
-            image_itm_input = vis_processors["eval"](raw_image).unsqueeze(0).to(device=device_blip, dtype=runtime_dtype_itm)
-            image_itm_input.requires_grad_(True)
+            # Get object list
+            object_list = inventory_detector.get_inventory(raw_image)
 
-            itm_text = text_processors["eval"](raw_query)
-            tokenized_text = model_itm.tokenizer(itm_text, padding='longest', truncation=True, return_tensors="pt").to(device_blip)
-            
-            augmented_image = augmentation(image_itm_input, itm_text, tensor_image.float(), model_itm, tokenized_text, raw_image)
-            # Send CD image to vt_device and cast to compute_dtype
-            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
+            # Create augmented view
+            augmented_image_pil = augmenter.augmentation(
+                raw_image=raw_image, 
+                object_list=object_list, 
+                conf_threshold=0.10, 
+                expansion_ratio=0.0
+            )
+
+            image_tensor_cd = image_processor.preprocess(augmented_image_pil, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
         else:
             image_tensor_cd = None
 
