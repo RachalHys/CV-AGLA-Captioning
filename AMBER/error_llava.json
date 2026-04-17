@@ -1,0 +1,210 @@
+[
+  {
+    "id": 516,
+    "image": "AMBER_516.jpg",
+    "response": "The image features a dining table with a white plate placed on it. The plate is filled with several hot dogs, some of which are covered in chili. The hot dogs are arranged in a circular pattern, with some overlapping each other. The plate is located towards the left side of the table.\n\nIn the background, there is a wine glass positioned at the top left corner of the table, and a cup can be seen on the right side of the table. The scene appears to be set for a meal or a gathering.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "table",
+      "glass",
+      "cup"
+    ]
+  },
+  {
+    "id": 792,
+    "image": "AMBER_792.jpg",
+    "response": "The image features two men standing on a sandy beach, each holding a motorcycle. The motorcycles are parked on the sand, with one closer to the left side of the scene and the other near the center. The men are standing next to each other, likely enjoying their time together on the beach.\n\nIn addition to the motorcycles, there is a backpack placed on the sand near the center of the scene, possibly belonging to one of the men. The overall atmosphere of the scene suggests a leisurely day spent on the beach by the two men.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "beach",
+      "sand",
+      "backpack"
+    ]
+  },
+  {
+    "id": 932,
+    "image": "AMBER_932.jpg",
+    "response": "The image features a laptop computer sitting on a bed, surrounded by various personal items. The laptop is positioned in the center of the scene, with a cell phone and a book located to its right. There are two earphones placed near the laptop, and a watch can be seen on the right side of the bed. \n\nAdditionally, there is a notebook and a pen on the bed, with the pen positioned closer to the left side of the bed and the notebook situated further to the left. The scene gives an impression of a cozy and organized workspace.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "bed",
+      "phone",
+      "book"
+    ]
+  },
+  {
+    "id": 19,
+    "image": "AMBER_19.jpg",
+    "response": "The image captures a beautiful scene of two people walking on a path near a body of water, likely the ocean. They are enjoying the sunset and the serene atmosphere. Both individuals are wearing backpacks, which suggests they might be hikers or travelers.\n\nThe path they are walking on is surrounded by trees, adding to the picturesque setting. The sun is setting in the background, casting a warm glow on the scene. The two people are the main focus of the image, with their backpacks and the path they are walking on creating a sense of adventure and exploration.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "path",
+      "backpack"
+    ]
+  },
+  {
+    "id": 964,
+    "image": "AMBER_964.jpg",
+    "response": "The image features a table with a variety of shrimp and lemon slices. There are several shrimp on the table, some of which are placed on ice, while others are not. The shrimp are spread across the table, with some near the center, others towards the edges, and a few in the background. \n\nIn addition to the shrimp, there are numerous lemon slices scattered around the table. Some are placed near the shrimp, while others are found in the background or on the edges of the table. The combination of shrimp and lemon slices creates an appetizing and refreshing presentation.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "table"
+    ]
+  },
+  {
+    "id": 83,
+    "image": "AMBER_83.jpg",
+    "response": "The image features a young girl in a pink bikini jumping high into the air on a beach. She is the main focus of the scene, capturing the excitement of her jump. Another person can be seen in the background, likely enjoying the beach atmosphere.\n\nThere are several beach items scattered around the scene, including a couple of bottles, a cup, and a handbag. The bottles are placed near the center of the image, while the cup is located closer to the right side, and the handbag is situated towards the left side.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "bottle",
+      "cup"
+    ]
+  },
+  {
+    "id": 85,
+    "image": "AMBER_85.jpg",
+    "response": "The image features a man sitting in a bathtub filled with water, enjoying a relaxing soak. He is smiling and has his foot out of the tub, possibly to dry it off or to interact with someone. The man appears to be in a good mood, possibly after a shower.\n\nThe bathroom is equipped with a sink and a toilet, both located on the right side of the scene. The sink is positioned close to the bathtub, while the toilet is situated further back in the room.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "sink",
+      "toilet"
+    ]
+  },
+  {
+    "id": 118,
+    "image": "AMBER_118.jpg",
+    "response": "The image captures a lively beach scene with two people enjoying a swim in the ocean. One person is lying on their stomach in the water, while the other person is swimming nearby. They are both having a great time in the ocean, surrounded by waves.\n\nIn addition to the two people, there are two surfboards visible in the scene. One surfboard is located near the person lying on their stomach, while the other surfboard is closer to the person swimming. The presence of these surfboards suggests that the beachgoers are also engaging in surfing activities.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "surfboard"
+    ]
+  },
+  {
+    "id": 122,
+    "image": "AMBER_122.jpg",
+    "response": "The image features a man sitting at a desk, writing on a piece of paper with a pen. He is holding the pen in his hand while focusing on his task. A cup, possibly containing coffee, is placed on the desk in front of him. \n\nThe man is wearing a shirt and tie, giving him a professional appearance. The desk appears to be well-organized, with a book and a cell phone placed nearby. The scene suggests that the man is working or studying in a focused and organized environment.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "coffee",
+      "tie",
+      "book",
+      "phone"
+    ]
+  },
+  {
+    "id": 216,
+    "image": "AMBER_216.jpg",
+    "response": "The image features a black laptop computer sitting on a wooden desk. The laptop is open and displaying a presentation, with a mouse placed nearby. The desk also has a cup and a cell phone on it, indicating that someone might be working or studying at this location.\n\nIn addition to the laptop and other items, there is a book placed on the desk, which might be related to the presentation or the person's work. The scene gives off a professional and organized atmosphere, with the laptop and other items neatly arranged on the desk.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "mouse",
+      "phone",
+      "book",
+      "person"
+    ]
+  },
+  {
+    "id": 436,
+    "image": "AMBER_436.jpg",
+    "response": "The image depicts a young woman lying on the floor next to a toilet, appearing to be sick. She is wearing black pants and a black top, and she is holding her head in her hands. The scene suggests that she might be feeling unwell or experiencing discomfort.\n\nThe bathroom is furnished with a sink, a toilet, and a cup placed on the countertop. The cup is located near the top right corner of the sink, while the toilet is situated in the center of the room. The young woman's positioning in relation to the toilet and sink indicates that she might have been using the facilities before feeling unwell.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "sink",
+      "cup"
+    ]
+  },
+  {
+    "id": 779,
+    "image": "AMBER_779.jpg",
+    "response": "The image features a wooden table with a pile of various electronic devices, including a remote control, a cell phone, and a TV remote. The remote control is placed on top of the pile, while the cell phone is located towards the bottom. The TV remote is situated in the middle of the pile. \n\nThe table appears to be a dining table, and the arrangement of these devices suggests that they are being prepared for use or have been recently used.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "phone",
+      "tv"
+    ]
+  },
+  {
+    "id": 782,
+    "image": "AMBER_782.jpg",
+    "response": "The image features a laptop computer sitting on a wooden desk in a dark room. The laptop screen is lit up, displaying a folder with various icons and files. The desk also has a mouse placed near the laptop, and a book is located on the left side of the desk.\n\nIn addition to the laptop and mouse, there are two cups on the desk, one near the center and the other towards the right side. The overall scene suggests a workspace or study area where the user can focus on their tasks.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "mouse",
+      "book",
+      "cup"
+    ]
+  },
+  {
+    "id": 908,
+    "image": "AMBER_908.jpg",
+    "response": "The image features a wooden table with a variety of electronic devices on it. There is a cell phone, a laptop, and a mouse placed on the table. The cell phone is positioned towards the left side of the table, while the laptop is situated more towards the center. The mouse is located towards the right side of the table.\n\nAdditionally, there are two remotes on the table, one near the center and the other towards the right side. A small white object, possibly a speaker or a charging device, is also present on the table, located near the left side.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "laptop",
+      "mouse"
+    ]
+  },
+  {
+    "id": 915,
+    "image": "AMBER_915.jpg",
+    "response": "The image captures a serene scene of a tree-lined path surrounded by trees. The path is shaded by the trees, creating a peaceful atmosphere. The path is wide enough to accommodate a vehicle, such as a car or a truck, as indicated by the presence of a car parked on the side of the road. The leaves on the trees are yellow, adding to the natural beauty of the scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "vehicle",
+      "car",
+      "truck"
+    ]
+  },
+  {
+    "id": 936,
+    "image": "AMBER_936.jpg",
+    "response": "The image features a beautiful island in the middle of the ocean, surrounded by a vast expanse of water. The island is covered with lush green vegetation, making it appear as a verdant oasis in the middle of the blue ocean. The water is calm, with no visible waves or disturbances.\n\nThe island is located near the shore, where a few boats can be seen floating in the water. These boats are scattered around the island, with some closer to the shore and others further away. The scene captures the serenity and beauty of the island and its surroundings.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "shore",
+      "boat"
+    ]
+  },
+  {
+    "id": 67,
+    "image": "AMBER_67.jpg",
+    "response": "The image features a man sitting on a bench, possibly waiting for someone or simply enjoying his time outdoors. He is wearing a blue jacket and appears to be looking at his watch. The man is positioned near the center of the scene, with the bench occupying a significant portion of the image.\n\nThere is a cup placed on the ground near the man, possibly belonging to him or someone else who was sitting there earlier. The scene is set against a backdrop of a building, which adds to the urban atmosphere.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "bench",
+      "watch"
+    ]
+  },
+  {
+    "id": 75,
+    "image": "AMBER_75.jpg",
+    "response": "The image features two dogs standing next to a red fire hydrant on a sidewalk. Both dogs are wearing leashes, indicating that they are likely on a walk with their owner. The dogs appear to be looking at the camera, possibly posing for a picture.\n\nIn the background, there is a car parked further down the street, and a truck can be seen in the distance. The scene captures a typical day in an urban environment, with the dogs enjoying their walk and the presence of vehicles in the background.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "car",
+      "truck",
+      "vehicle"
+    ]
+  },
+  {
+    "id": 76,
+    "image": "AMBER_76.jpg",
+    "response": "The image features a person in a yellow boat paddling on a large body of water, possibly a lake or a river. The person is wearing a backpack and appears to be enjoying their time on the water. The boat is situated in the middle of the scene, with the person rowing through the water.\n\nThe surrounding area is filled with trees, creating a serene and natural atmosphere. The boat is surrounded by a few trees, with some closer to the water and others further away. The scene captures a peaceful moment of the person exploring the water and enjoying the outdoors.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "backpack",
+      "tree"
+    ]
+  },
+  {
+    "id": 84,
+    "image": "AMBER_84.jpg",
+    "response": "The image features a young child, likely a toddler, sitting in a bathtub filled with water. The child is holding a yellow cup, possibly filled with soap or water, and appears to be enjoying their time in the tub. The scene is set in a bathroom, with a sink visible in the background.\n\nThere are several bottles scattered around the bathroom, with one on the left side, another on the right side, and a third one located closer to the sink. The presence of these bottles suggests that they might be bath products or other items used in the bathroom.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "soap",
+      "sink"
+    ]
+  }
+]
