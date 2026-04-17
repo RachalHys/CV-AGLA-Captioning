@@ -15,7 +15,6 @@ __pycache__/
 
 # Datasets
 AMBER/image/
-AMBER/run_log.txt
 
 # Environment variables
 .env
@@ -23,3 +22,7 @@ AMBER/run_log.txt
 # Cache model
 .cache/
 cache/
+
+./run_log.txt
+
+./agla-modernized-test2.ipynb

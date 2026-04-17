@@ -120,7 +120,7 @@ def eval_model(args):
         input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(model.device)
         raw_image = Image.open(os.path.join(args.image_folder, image_file)).convert("RGB")
         # Main image → vision tower device dynamically casted to compute_dtype
-        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=torch.float16, device=vt_device)
+        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
         
         if args.use_agla:
             tensor_image = loader(raw_image.resize((384,384))).float()
@@ -133,7 +133,7 @@ def eval_model(args):
             
             augmented_image = augmentation(image_itm_input, itm_text, tensor_image.float(), model_itm, tokenized_text, raw_image)
             # Send CD image to vt_device and cast to compute_dtype
-            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=torch.float16, device=vt_device)
+            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
         else:
             image_tensor_cd = None
 
