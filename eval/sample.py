@@ -163,9 +163,21 @@ def sample(
             log_cd_beta_typed = log_cd_beta.to(logits_dtype)
             cd_alpha_typed    = cd_alpha_t.to(logits_dtype)
 
-            cutoff = log_cd_beta_typed + next_token_logits.max(dim=-1, keepdim=True).values
-            diffs = (next_token_logits + cd_alpha_typed * next_token_logits_cd)
+            # Dynamic weighing
+            # 1. Change logits to probability
+            p_orig = nn.functional.softmax(next_token_logits, dim=-1)
+            p_cd = nn.functional.softmax(next_token_logits_cd, dim=-1)
 
+            # 2. Calculate Hallucination Risk
+            hallucination_risk = torch.relu(p_orig - p_cd)
+
+            # 3. Update weight based on Hallucination Risk
+            dynamic_alpha = cd_alpha_typed * (1.0 + 2.0 * hallucination_risk)
+
+            # 4. Logit Assembly
+            diffs = next_token_logits_cd + dynamic_alpha * (next_token_logits_cd - next_token_logits)
+            
+            cutoff = log_cd_beta_typed + next_token_logits.max(dim=-1, keepdim=True).values
             cd_logits = diffs.masked_fill(next_token_logits < cutoff, -float("inf"))
 
             cd_logits = logits_processor(input_ids, cd_logits)
