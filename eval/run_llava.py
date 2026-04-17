@@ -134,8 +134,8 @@ def eval_model(args):
             augmented_image_pil = augmenter.augmentation(
                 raw_image=raw_image, 
                 object_list=object_list, 
-                conf_threshold=0.10, 
-                expansion_ratio=0.0
+                conf_threshold=args.yolo_conf, 
+                expansion_ratio=args.expansion_ratio
             )
 
             image_tensor_cd = image_processor.preprocess(augmented_image_pil, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
@@ -200,6 +200,10 @@ if __name__ == "__main__":
     parser.add_argument("--agla-size", type=str, default="large", choices=["base", "large"], help="'large'=AGLA full (307M), 'base'=AGLA-small (120M)")
     parser.add_argument("--max-questions", type=int, default=None, help="Maximum number of questions to process. Default is ALL.")
     
+    # arg to customise yolo conf and SAM expansion ratio
+    parser.add_argument("--yolo-conf", type=float, default=0.20, help="YOLO object detection confidence threshold.")
+    parser.add_argument("--expansion-ratio", type=float, default=0.0, help="SAM mask expansion (dilation) ratio.")
+
     parser.add_argument("--alpha", type=float, default=2.0)
     parser.add_argument("--beta", type=float, default=0.5)
     parser.add_argument("--seed", type=int, default=0)

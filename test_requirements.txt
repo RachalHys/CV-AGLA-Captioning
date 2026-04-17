@@ -43,3 +43,8 @@ contexttimer
 python-magic
 
 hf_transfer
+
+# SAM
+ultralytics
+opencv-python
+git+https://github.com/ChaoningZhang/MobileSAM.git
