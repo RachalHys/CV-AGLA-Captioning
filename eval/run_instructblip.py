@@ -139,7 +139,7 @@ if __name__ == "__main__":
     parser.add_argument("--alpha", type=float, default=2.0)
     parser.add_argument("--beta", type=float, default=0.5)
     parser.add_argument("--num-beams", type=int, default=1)
-    parser.add_argument("--max-new-tokens", type=int, default=128)
+    parser.add_argument("--max-new-tokens", type=int, default=150)
     parser.add_argument("--max-length", type=int, default=None)
     parser.add_argument("--model-type", type=str, default="vicuna7b")
     parser.add_argument("--agla-size", type=str, default="large", choices=["base", "large"], help="'large'=AGLA full (307M), 'base'=AGLA-small (120M)")

@@ -187,7 +187,7 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top_p", type=float, default=1.0)
     parser.add_argument("--top_k", type=int, default=None)
-    parser.add_argument("--max-new-tokens", type=int, default=512)
+    parser.add_argument("--max-new-tokens", type=int, default=150)
     parser.add_argument("--use_agla", action='store_true', default=False)
     parser.add_argument("--prompt-suffix", type=str, default="", help="Optional suffix appended to every query.")
     parser.add_argument("--num-gpus", type=int, default=1, help="Number of GPUs: 1 or 2.")
