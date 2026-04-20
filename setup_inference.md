@@ -19,7 +19,7 @@ import os
 %cd CV-AGLA-Improvement
 
 # 2. Install dependencies
-!pip install -r requirements.txt
+!pip install -r test_requirements.txt
 !pip install salesforce-lavis==1.0.2 --no-deps  # MUST be installed without deps
 
 # 3. Download Evaluation Resources
@@ -45,7 +45,7 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
     --answers-file {OUTPUT_FILE} \
     --num-gpus 2 \
     --precision fp16 \
-    --max-new-tokens 512 \
+    --max-new-tokens 150 \
     --use_agla \
     --alpha 2.0 \
     --beta 0.5 \
@@ -81,7 +81,7 @@ git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Improvem
 cd CV-AGLA-Improvement
 
 # Install libraries
-pip install -r requirements.txt
+pip install -r test_requirements.txt
 pip install salesforce-lavis==1.0.2 --no-deps
 
 # Download NLP models for AMBER
@@ -97,7 +97,7 @@ python eval/run_llava.py \
     --question-file AMBER/amber_generative.jsonl \
     --answers-file AMBER/amber_llava_sam_output.jsonl \
     --precision fp16 \
-    --max-new-tokens 512 \
+    --max-new-tokens 150 \
     --use_agla \
     --alpha 2.0 \
     --beta 0.5 \
