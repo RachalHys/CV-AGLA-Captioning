@@ -55,10 +55,14 @@ nltk.download('wordnet')
 ---
 
 ## 3. Convert Amber query to Model format (ONLY IF NEEDED. THE FILE IS ALREADY CREATED)
-* You should go to AMBER folder first then run this CLI
+* You should go to AMBER folder first before running this CLI
 ```bash
 python convert.py --input data/query/query_generative.json --output amber_generative.jsonl
+```
 
+---
+
+## 4. Run inference baseline LLavis + AGLA
 ```bash
 python eval/run_llava.py \
     --image-folder AMBER/image \
@@ -68,22 +72,20 @@ python eval/run_llava.py \
     --precision fp16 \
     2>&1 | tee run_log.txt
 ```
-
 ---
 
+## 4. AMBER evaluation
+* You should go to AMBER folder first before running this CLI
 
-## 4. Convert Output to AMBER Format
-* You should go to AMBER folder first then run this CLI
+### 4.1 Convert Output to AMBER Format
 ```bash
 python convert_amber_eval.py \
     --input amber_llava_base_output.jsonl \
     --output amber_eval.json
 ```
 
----
+### 4.2 Run AMBER Evaluation
 
-## 5. Run AMBER Evaluation
-* You should go to AMBER folder first then run this CLI
 ```bash
 python inference.py \
     --inference_data amber_eval.json \
