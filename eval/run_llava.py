@@ -71,7 +71,7 @@ def eval_model(args):
     # With device_map='auto', the vision tower can be on any GPU.
     vision_tower = model.get_vision_tower()
     vt_device = next(vision_tower.parameters()).device
-    runtime_dtype_itm = torch.bfloat16 if has_bf16 else torch.float16
+    runtime_dtype_itm = torch.bfloat16 if has_bf16 else torch.float32
     print("Loading BLIP-ITM model...")
     model_itm, vis_processors, text_processors = load_model_and_preprocess("blip_image_text_matching", args.agla_size, device=device_blip, is_eval=True,)
     model_itm.to(runtime_dtype_itm) # Cast model_itm to correct dtype
@@ -96,9 +96,12 @@ def eval_model(args):
     os.makedirs(os.path.dirname(answers_file), exist_ok=True)
     # File I/O with explicit UTF-8 encoding
     ans_file = open(answers_file, "w", encoding="utf-8")
-    CYCLE = 25 # Flush the file every 25 lines to avoid data loss
+    FLUSH_CYCLE        = 25 # Flush the file every 25 lines to avoid data loss
+    CACHE_CLEAR_CYCLE  = 1 # Clear CUDA cache every 100 lines to manage memory in long runs
 
     loader = transforms.Compose([transforms.ToTensor()])
+    # Caching avoids redundant CPU tokenization for repeated prompts, which can happen in some datasets. The cache key is the raw query string.
+    _tok_cache: dict = {}
     for i, line in enumerate(tqdm(questions)):
         idx = line.get("id") or line.get("question_id")
         image_file = line["image"]
@@ -121,23 +124,28 @@ def eval_model(args):
         input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(model.device)
         raw_image = Image.open(os.path.join(args.image_folder, image_file)).convert("RGB")
         # Main image → vision tower device dynamically casted to compute_dtype
-        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
+        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True)
         
+        image_tensor_cd = None
+
         if args.use_agla:
-            tensor_image = loader(raw_image.resize((384,384))).float()
+            tensor_image = loader(raw_image.resize((384,384)))
             # Cast to correct dtype for BLIP-ITM
-            image_itm_input = vis_processors["eval"](raw_image).unsqueeze(0).to(device=device_blip, dtype=runtime_dtype_itm)
+            image_itm_input = vis_processors["eval"](raw_image).unsqueeze(0).to(device=device_blip, dtype=runtime_dtype_itm, non_blocking=True)
             image_itm_input.requires_grad_(True)
 
-            itm_text = text_processors["eval"](raw_query)
-            tokenized_text = model_itm.tokenizer(itm_text, padding='longest', truncation=True, return_tensors="pt").to(device_blip)
+            if raw_query not in _tok_cache:
+                itm_text = text_processors["eval"](raw_query)
+                tokenized = model_itm.tokenizer(itm_text, padding='longest', truncation=True, return_tensors="pt")
+                _tok_cache[raw_query] = (itm_text, tokenized)
+            else:
+                itm_text, tokenized = _tok_cache[raw_query]
             
-            augmented_image = augmentation(image_itm_input, itm_text, tensor_image.float(), model_itm, tokenized_text, raw_image)
-            # Send CD image to vt_device and cast to compute_dtype
-            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
-        else:
-            image_tensor_cd = None
+            tokenized_text = tokenized.to(device_blip)
 
+            augmented_image = augmentation(image_itm_input, itm_text, tensor_image, model_itm, tokenized_text, raw_image)
+            # Send CD image to vt_device and cast to compute_dtype
+            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True)
         # Stopping criteria
         stop_str = conv.sep if conv.sep_style != SeparatorStyle.TWO else conv.sep2
         stopping_criteria = KeywordsStoppingCriteria([stop_str], tokenizer, input_ids)
@@ -170,9 +178,16 @@ def eval_model(args):
             "response": outputs,
             "image": image_file,
         }, ensure_ascii=False) + "\n")
-        # FLUSH block
-        if (i + 1) % CYCLE == 0:
+
+        if args.use_agla:
+            del image_itm_input, augmented_image, image_tensor_cd
+            del tensor_image, tokenized_text
+        
+        step = i + 1
+        if step % FLUSH_CYCLE == 0:
             ans_file.flush()
+        if step % CACHE_CLEAR_CYCLE == 0:
+            torch.cuda.empty_cache()
         
     ans_file.close()
     print(f"✅ Finished! Results saved to {ans_file.name}")
@@ -188,7 +203,7 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top_p", type=float, default=1.0)
     parser.add_argument("--top_k", type=int, default=None)
-    parser.add_argument("--max-new-tokens", type=int, default=150)
+    parser.add_argument("--max-new-tokens", type=int, default=180)
     parser.add_argument("--use_agla", action='store_true', default=False)
     parser.add_argument("--prompt-suffix", type=str, default="", help="Optional suffix appended to every query.")
     parser.add_argument("--num-gpus", type=int, default=1, help="Number of GPUs: 1 or 2.")

@@ -21,7 +21,7 @@ pip install torch==2.11.0 torchvision==0.26.0 torchaudio==2.11.0 \
 ### 1.2 Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r test_requirements.txt
 ```
 
 ---
@@ -54,40 +54,10 @@ nltk.download('wordnet')
 
 ---
 
-## 3. Configuration
-
-* Inference mode (FP16, BF16, INT8, INT4):
-  `lavis/configs/models/blip2/blip2_instruct_vicuna7b.yaml`
-
-* Model checkpoint path:
-  `lavis/configs/default.yaml`
-
----
-
-## 4. Convert Amber query to Model format (ONLY IF NEEDED. THE FILE IS ALREADY CREATED)
+## 3. Convert Amber query to Model format (ONLY IF NEEDED. THE FILE IS ALREADY CREATED)
 * You should go to AMBER folder first then run this CLI
 ```bash
-python convert.py --input data/query/query_generative.json --output amber_generative.jsonl --num 500 --shuffle
-```
-
-## 4.1 Run Inference (InstructBLIP 7B)
-* base for small AGLA version. large for normal agla version
-
-```bash
-python eval/run_instructblip.py \
-    --model-type vicuna7b \
-    --image-folder AMBER/image \
-    --question-file AMBER/amber_generative.jsonl \
-    --answers-file AMBER/amber_instructblip7b_small_output.jsonl \
-    --max-new-tokens 512 \
-    --num-beams 1 \
-    --no-one-word-answer \
-    --use_agla \
-    --agla-size base \ 
-    2>&1 | tee run_log.txt
-```
-
-## 4.2 Run Inference (LLaVA 1.5 7B)
+python convert.py --input data/query/query_generative.json --output amber_generative.jsonl
 
 ```bash
 python eval/run_llava.py \
@@ -95,27 +65,24 @@ python eval/run_llava.py \
     --question-file AMBER/amber_generative.jsonl \
     --answers-file AMBER/amber_llava_small_output.jsonl \
     --use_agla \
-    --agla-size base \
     --precision fp16 \
-    --max-new-tokens 512 \
     2>&1 | tee run_log.txt
 ```
 
 ---
 
 
-
-## 5. Convert Output to AMBER Format
+## 4. Convert Output to AMBER Format
 * You should go to AMBER folder first then run this CLI
 ```bash
 python convert_amber_eval.py \
-    --input amber_instructblip7b_small_output.jsonl \
+    --input amber_llava_base_output.jsonl \
     --output amber_eval.json
 ```
 
 ---
 
-## 6. Run AMBER Evaluation
+## 5. Run AMBER Evaluation
 * You should go to AMBER folder first then run this CLI
 ```bash
 python inference.py \
@@ -125,6 +92,8 @@ python inference.py \
 ```
 
 ---
+
+## 6. Use the visualize.ipynb in eval/ to perform quantitative evaluation.
 
 ## Notes
 
