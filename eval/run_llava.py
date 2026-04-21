@@ -8,12 +8,13 @@ EVAL_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(EVAL_DIR)
 
 # 2. Setup Cache
-os.environ.setdefault("HF_HOME",    os.path.join(PROJECT_ROOT, ".cache", "huggingface"))
-os.environ.setdefault("TORCH_HOME", os.path.join(PROJECT_ROOT, ".cache", "torch"))
+CACHE_DIR = os.path.join(PROJECT_ROOT, ".cache")
+os.environ["HF_HOME"] = os.path.join(CACHE_DIR, "huggingface")
+os.environ["TORCH_HOME"] = os.path.join(CACHE_DIR, "torch")
 
 # 3. Setup sys.path
 for path in [PROJECT_ROOT, EVAL_DIR]:
-    if path in sys.path:
+    while path in sys.path:
         sys.path.remove(path)
     sys.path.insert(0, path)
 from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
@@ -99,9 +100,12 @@ def eval_model(args):
     os.makedirs(os.path.dirname(answers_file), exist_ok=True)
     # File I/O with explicit UTF-8 encoding
     ans_file = open(answers_file, "w", encoding="utf-8")
-    CYCLE = 25 # Flush the file every 25 lines to avoid data loss
+    FLUSH_CYCLE        = 25 # Flush the file every 25 lines to avoid data loss
+    CACHE_CLEAR_CYCLE  = 1 # Clear CUDA cache every 100 lines to manage memory in long runs
 
     loader = transforms.Compose([transforms.ToTensor()])
+    # Caching avoids redundant CPU tokenization for repeated prompts, which can happen in some datasets. The cache key is the raw query string.
+    _tok_cache: dict = {}
     for i, line in enumerate(tqdm(questions)):
         idx = line.get("id") or line.get("question_id")
         image_file = line["image"]
@@ -124,8 +128,10 @@ def eval_model(args):
         input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(model.device)
         raw_image = Image.open(os.path.join(args.image_folder, image_file)).convert("RGB")
         # Main image → vision tower device dynamically casted to compute_dtype
-        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
+        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True)
         
+        image_tensor_cd = None
+
         if args.use_agla:
             # Get object list
             object_list = inventory_detector.get_inventory(raw_image)
@@ -142,6 +148,9 @@ def eval_model(args):
         else:
             image_tensor_cd = None
 
+            augmented_image = augmentation(image_itm_input, itm_text, tensor_image, model_itm, tokenized_text, raw_image)
+            # Send CD image to vt_device and cast to compute_dtype
+            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True)
         # Stopping criteria
         stop_str = conv.sep if conv.sep_style != SeparatorStyle.TWO else conv.sep2
         stopping_criteria = KeywordsStoppingCriteria([stop_str], tokenizer, input_ids)
@@ -174,9 +183,16 @@ def eval_model(args):
             "response": outputs,
             "image": image_file,
         }, ensure_ascii=False) + "\n")
-        # FLUSH block
-        if (i + 1) % CYCLE == 0:
+
+        if args.use_agla:
+            del image_itm_input, augmented_image, image_tensor_cd
+            del tensor_image, tokenized_text
+        
+        step = i + 1
+        if step % FLUSH_CYCLE == 0:
             ans_file.flush()
+        if step % CACHE_CLEAR_CYCLE == 0:
+            torch.cuda.empty_cache()
         
     ans_file.close()
     print(f"✅ Finished! Results saved to {ans_file.name}")
@@ -192,7 +208,7 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top_p", type=float, default=1.0)
     parser.add_argument("--top_k", type=int, default=None)
-    parser.add_argument("--max-new-tokens", type=int, default=512)
+    parser.add_argument("--max-new-tokens", type=int, default=180)
     parser.add_argument("--use_agla", action='store_true', default=False)
     parser.add_argument("--prompt-suffix", type=str, default="", help="Optional suffix appended to every query.")
     parser.add_argument("--num-gpus", type=int, default=1, help="Number of GPUs: 1 or 2.")

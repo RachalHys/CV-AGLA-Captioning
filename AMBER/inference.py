@@ -272,40 +272,55 @@ def main(args):
     top_errors = error_samples[:args.top_k]
     with open('worst_images.json', 'w', encoding='utf-8') as f:
         json.dump(top_errors, f, indent=2, ensure_ascii=False)
-    print(f"\nSaved TOP-{args.top_k} worst images into 'worst.json'")
+    print(f"\nSaved TOP-{args.top_k} worst images into 'error_images.json'")
 
     if dimension['g']:
         CHAIR = round(metrics['chair_score'] / metrics['chair_num'] * 100, 1)
         Cover = round(metrics['safe_cover_score'] / metrics['safe_cover_num'] * 100, 1)
         Ha = round(metrics['hallu_cover_score'] / metrics['hallu_cover_num'] * 100, 1)
         Ha_p = round(100 - metrics['non_hallu_score'] / metrics['non_hallu_num'] * 100, 1)
-        print("Generative Task:")
-        print("CHAIR:\t\t", CHAIR)
-        print("Cover:\t\t", Cover)
-        print("Hal:\t\t", Ha_p)
-        print("Cog:\t\t", Ha, "\n")
+        
+        gen_text = (
+            "Generative Task:\n"
+            f"CHAIR:           {CHAIR}\n"
+            f"Cover:           {Cover}\n"
+            f"Hal:             {Ha_p}\n"
+            f"Cog:             {Ha}\n"
+        )
+        print(gen_text)
+        result_text += gen_text + "\n"
     
     if dimension['de'] and dimension['da'] and dimension['dr']:
         Accuracy = round(metrics['qa_correct_score'] / metrics['qa_correct_num'] * 100, 1)
         Precision = round(metrics['qa_ans_no_score'] / metrics['qa_ans_no_num'] * 100, 1)
         Recall = round(metrics['qa_no_score'] / metrics['qa_no_num'] * 100, 1)
         F1 = round(2 * (Precision/100) * (Recall/100) / ((Precision/100) + (Recall/100) + 0.0001) * 100, 1)
-        print("Descriminative Task:")
-        print("Accuracy:\t", Accuracy)
-        print("Precision:\t", Precision)
-        print("Recall:\t\t", Recall)
-        print("F1:\t\t", F1, "\n")
+        
+        disc_text = (
+            "Descriminative Task:\n"
+            f"Accuracy:\t {Accuracy}\n"
+            f"Precision:\t {Precision}\n"
+            f"Recall:\t\t {Recall}\n"
+            f"F1:\t\t {F1}\n"
+        )
+        print(disc_text)
+        result_text += disc_text + "\n"
     
     if dimension['de']:
         hallucination_Accuracy = round(metrics['ha_qa_correct_score'] / metrics['ha_qa_correct_num'] * 100, 1)
         hallucination_Precision = round(metrics['ha_qa_ans_no_score'] / metrics['ha_qa_ans_no_num'] * 100, 1)
         hallucination_Recall = round(metrics['ha_qa_no_score'] / metrics['ha_qa_no_num'] * 100, 1)
         hallucination_F1 = round(2 * (hallucination_Precision/100) * (hallucination_Recall/100) / ((hallucination_Precision/100) + (hallucination_Recall/100) + 0.001) * 100, 1)
-        print("Exsitence:")
-        print("Accuracy:\t", hallucination_Accuracy)
-        print("Precision:\t", hallucination_Precision)
-        print("Recall:\t\t", hallucination_Recall)
-        print("F1:\t\t", hallucination_F1, "\n")
+        
+        de_text = (
+            "Existence:\n"
+            f"Accuracy:\t {hallucination_Accuracy}\n"
+            f"Precision:\t {hallucination_Precision}\n"
+            f"Recall:\t\t {hallucination_Recall}\n"
+            f"F1:\t\t {hallucination_F1}\n"
+        )
+        print(de_text)
+        result_text += de_text + "\n"
     
     if dimension['da']:
         attr_Accuracy = round((metrics['as_qa_correct_score'] + metrics['an_qa_correct_score'] + metrics['aa_qa_correct_score']) / (metrics['as_qa_correct_num'] + metrics['an_qa_correct_num'] + metrics['aa_qa_correct_num']) * 100, 1)
@@ -324,37 +339,52 @@ def main(args):
         action_Precision = round(metrics['aa_qa_ans_no_score'] / metrics['aa_qa_ans_no_num'] * 100, 1)
         action_Recall = round(metrics['aa_qa_no_score'] / metrics['aa_qa_no_num'] * 100, 1)
         action_F1 = round(2 * (action_Precision/100) * (action_Recall/100) / ((action_Precision/100) + (action_Recall/100) + 0.0001) * 100, 1)
-        print("Attribute:")
-        print("Accuracy:\t", attr_Accuracy)
-        print("Precision:\t", attr_Precision)
-        print("Recall:\t\t", attr_Recall)
-        print("F1:\t\t", attr_F1, "\n")
-        print("State:")
-        print("Accuracy:\t", state_Accuracy)
-        print("Precision:\t", state_Precision)
-        print("Recall:\t\t", state_Recall)
-        print("F1:\t\t", state_F1, "\n")
-        print("Number:")
-        print("Accuracy:\t", number_Accuracy)
-        print("Precision:\t", number_Precision)
-        print("Recall:\t\t", number_Recall)
-        print("F1:\t\t", number_F1, "\n")
-        print("Action:")
-        print("Accuracy:\t", action_Accuracy)
-        print("Precision:\t", action_Precision)
-        print("Recall:\t\t", action_Recall)
-        print("F1:\t\t", action_F1, "\n")
+        
+        da_text = (
+            "Attribute:\n"
+            f"Accuracy:\t {attr_Accuracy}\n"
+            f"Precision:\t {attr_Precision}\n"
+            f"Recall:\t\t {attr_Recall}\n"
+            f"F1:\t\t {attr_F1}\n\n"
+            "State:\n"
+            f"Accuracy:\t {state_Accuracy}\n"
+            f"Precision:\t {state_Precision}\n"
+            f"Recall:\t\t {state_Recall}\n"
+            f"F1:\t\t {state_F1}\n\n"
+            "Number:\n"
+            f"Accuracy:\t {number_Accuracy}\n"
+            f"Precision:\t {number_Precision}\n"
+            f"Recall:\t\t {number_Recall}\n"
+            f"F1:\t\t {number_F1}\n\n"
+            "Action:\n"
+            f"Accuracy:\t {action_Accuracy}\n"
+            f"Precision:\t {action_Precision}\n"
+            f"Recall:\t\t {action_Recall}\n"
+            f"F1:\t\t {action_F1}\n"
+        )
+        print(da_text)
+        result_text += da_text + "\n"
     
     if dimension['dr']:
         relation_Accuracy = round(metrics['asso_qa_correct_score'] / metrics['asso_qa_correct_num'] * 100, 1)
         relation_Precision = round(metrics['asso_qa_ans_no_score'] / metrics['asso_qa_ans_no_num'] * 100, 1)
         relation_Recall = round(metrics['asso_qa_no_score'] / metrics['asso_qa_no_num'] * 100, 1)
         relation_F1 = round(2 * (relation_Precision/100) * (relation_Recall/100) / ((relation_Precision/100) + (relation_Recall/100) + 0.0001) * 100, 1)
-        print("Relation:")
-        print("Accuracy:\t", relation_Accuracy)
-        print("Precision:\t", relation_Precision)
-        print("Recall:\t\t", relation_Recall)
-        print("F1:\t\t", relation_F1)
+        
+        dr_text = (
+            "Relation:\n"
+            f"Accuracy:\t {relation_Accuracy}\n"
+            f"Precision:\t {relation_Precision}\n"
+            f"Recall:\t\t {relation_Recall}\n"
+            f"F1:\t\t {relation_F1}\n"
+        )
+        print(dr_text)
+        result_text += dr_text + "\n"
+
+    # 3. Ghi toàn bộ kết quả vào result.txt
+    with open('result.txt', 'w', encoding='utf-8') as f:
+        f.write(result_text)
+    print("Results saved to 'result.txt'")
 
 if __name__ == "__main__":
     args = get_args()

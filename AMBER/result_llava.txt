@@ -1,8 +1,12 @@
-100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1004/1004 [01:05<00:00, 15.39it/s]
+(CV-AGLA-Improvement) rachal@Rachal:~/projects/CV-AGLA-Improvement/AMBER$ python inference.py \
+    --inference_data amber_eval.json \
+    --evaluation_type g \
+    --top_k 30
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1004/1004 [01:14<00:00, 13.56it/s]
 
-Saved TOP-20 worst images into 'worst.json'
+Saved TOP-30 worst images into 'error_llava.json'
 Generative Task:
-CHAIR:           6.7
+CHAIR:           7.3
 Cover:           51.3
-Hal:             33.8
-Cog:             3.4 
+Hal:             34.5
+Cog:             3.9

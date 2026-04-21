@@ -45,10 +45,7 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
     --answers-file {OUTPUT_FILE} \
     --num-gpus 2 \
     --precision fp16 \
-    --max-new-tokens 150 \
     --use_agla \
-    --alpha 2.0 \
-    --beta 0.5 \
     2>&1 | tee run_log_llava.txt
 ```
 
@@ -97,13 +94,10 @@ python eval/run_llava.py \
     --question-file AMBER/amber_generative.jsonl \
     --answers-file AMBER/amber_llava_sam_output.jsonl \
     --precision fp16 \
-    --max-new-tokens 150 \
     --use_agla \
-    --alpha 2.0 \
-    --beta 0.5 \
     2>&1 | tee run_log_llava.txt
 ```
-*(Note: Change `--num-gpus 2` to `1` and `--precision fp16` to `int8` if you only have a single GPU with <24GB VRAM).*
+*(Note: Change `--num-gpus 2` to `1` and `--precision fp16` to `int8` if you only have a single GPU with limit VRAM).*
 
 ### Step 3: Format & Evaluate
 ```bash

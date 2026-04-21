@@ -1,0 +1,308 @@
+[
+  {
+    "id": 932,
+    "image": "AMBER_932.jpg",
+    "response": "The image features a laptop computer placed on a bed, with a cell phone and a watch nearby. The laptop is positioned towards the left side of the bed, while the cell phone is located towards the right side, and the watch is placed in the middle of the bed.\n\nIn addition to these items, there are two books on the bed, one near the left edge and the other towards the right side. A notebook can also be seen on the left side of the bed, and a pen is placed close to the notebook. The scene appears to be a casual and relaxed environment, with the laptop and other items indicating a work or study session.",
+    "hallucination_count": 8,
+    "hallucinated_nouns": [
+      "bed",
+      "phone",
+      "book"
+    ]
+  },
+  {
+    "id": 462,
+    "image": "AMBER_462.jpg",
+    "response": "The image features a kitchen with a white refrigerator and a microwave oven placed above it. The refrigerator is positioned on the left side of the kitchen, while the microwave is located above it on the right side. The kitchen countertop is situated in the background, and a sink can be seen towards the right side of the counter.\n\nThere are also a few items placed on the countertop, including a bowl and a cup. The bowl is located towards the right side of the counter, while the cup is situated closer to the center. The overall scene gives off a clean and organized appearance, typical of a well-maintained kitchen.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "sink",
+      "bowl",
+      "cup"
+    ]
+  },
+  {
+    "id": 482,
+    "image": "AMBER_482.jpg",
+    "response": "The image features a dining table with two bowls filled with food. One bowl is filled with rice, while the other is filled with broccoli. The broccoli is in various sizes and can be seen throughout the bowl. The bowls are placed on the table, with one positioned closer to the left side and the other towards the right side. The arrangement of the bowls and their contents create a visually appealing and healthy meal.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "bowl"
+    ]
+  },
+  {
+    "id": 964,
+    "image": "AMBER_964.jpg",
+    "response": "The image features a table with a variety of shrimp and lemon slices. There are several shrimp on the table, some of which are placed on a plate, while others are spread out on the table. The shrimp are in different sizes and positions, creating a visually appealing arrangement.\n\nIn addition to the shrimp, there are multiple lemon slices scattered across the table. Some of the lemon slices are placed near the shrimp, while others are positioned separately. The combination of shrimp and lemon slices creates a vibrant and appetizing scene.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "table",
+      "plate"
+    ]
+  },
+  {
+    "id": 67,
+    "image": "AMBER_67.jpg",
+    "response": "The image features a man sitting on a bench, possibly on a street or in a public space. He is wearing a blue jacket and appears to be looking at something or someone in the distance. The man is holding a cup, possibly containing a beverage, and seems to be enjoying his time on the bench.\n\nThe scene is captured in black and white, adding a sense of nostalgia and timelessness to the image. The bench is located near a wall, which adds to the overall atmosphere of the scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "bench",
+      "street"
+    ]
+  },
+  {
+    "id": 122,
+    "image": "AMBER_122.jpg",
+    "response": "The image features a man sitting at a table, writing on a piece of paper with a pen. He is wearing a gray shirt and appears to be focused on his task. The table is surrounded by various items, including a cup, a book, and a cell phone. The cup is placed near the edge of the table, while the book is situated closer to the center. The cell phone is located on the right side of the table.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "book",
+      "phone"
+    ]
+  },
+  {
+    "id": 130,
+    "image": "AMBER_130.jpg",
+    "response": "The image features a young girl wearing a bikini, laying on her stomach on a beach. She appears to be enjoying her time in the water, possibly playing or relaxing. The girl's feet are visible, and she is wearing a pair of glasses.\n\nThe beach setting is further emphasized by the presence of sand, and the water is visible in the background. The girl's bikini is a prominent feature of the scene, and her relaxed posture adds to the overall atmosphere of leisure and enjoyment.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "beach",
+      "glass",
+      "sand"
+    ]
+  },
+  {
+    "id": 199,
+    "image": "AMBER_199.jpg",
+    "response": "The image features a kitchen counter with a microwave and a coffee mug placed on it. The microwave is located on the left side of the counter, while the coffee mug is situated on the right side. The counter appears to be made of wood. \n\nIn addition to the microwave and coffee mug, there is a cup positioned near the right edge of the counter. A bottle can also be seen on the left side of the counter, slightly behind the microwave.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "coffee",
+      "bottle"
+    ]
+  },
+  {
+    "id": 231,
+    "image": "AMBER_231.jpg",
+    "response": "The image features a beach setting with a bench positioned near the water. The bench is facing the ocean, offering a beautiful view of the waves and the horizon. The bench is located close to the water's edge, allowing visitors to enjoy the calming sound of the waves and the soothing atmosphere of the beach.\n\nThe sun is setting in the background, casting a warm glow over the scene, creating a serene and peaceful ambiance. The bench is the main focus of the image, inviting viewers to sit and take in the breathtaking view of the ocean.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "beach",
+      "sound",
+      "sun"
+    ]
+  },
+  {
+    "id": 306,
+    "image": "AMBER_306.jpg",
+    "response": "The image features a small bathroom with a white toilet situated in the corner of the room. The toilet is positioned under a window, providing natural light to the space. There is a bottle of hand soap placed on the toilet, ready for use. \n\nThe bathroom also includes a sink, which is located on the left side of the room. A toilet brush can be seen resting near the toilet, and a cup is placed on the right side of the room. The overall design of the bathroom is simple and functional, with a focus on providing essential amenities for daily use.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "soap",
+      "sink",
+      "brush",
+      "cup"
+    ]
+  },
+  {
+    "id": 317,
+    "image": "AMBER_317.jpg",
+    "response": "The image features a red double-decker bus driving down a street in a city. The bus is positioned in the center of the scene, and it appears to be a tour bus, as it is driving down the road. The street is lined with trees, giving the scene a pleasant atmosphere.\n\nThere are a few people visible in the image, with one person standing near the left side of the bus and another person closer to the right side. Additionally, there is a car parked on the side of the street, slightly behind the bus. The scene captures a typical day in a city, with the bus transporting passengers and people going about their daily activities.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 338,
+    "image": "AMBER_338.jpg",
+    "response": "The image features a small white toilet in a bathroom with a tiled floor. The toilet is located in the corner of the room, and it has a blue lid cover. The bathroom is equipped with a handicap rail, making it accessible for individuals with disabilities.\n\nIn addition to the toilet, there is a sink in the bathroom, positioned near the left side of the room. The sink is accompanied by a soap dispenser, which is placed on the wall above it. The overall design of the bathroom is simple and functional, providing a comfortable space for users.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "rail",
+      "sink",
+      "soap"
+    ]
+  },
+  {
+    "id": 432,
+    "image": "AMBER_432.jpg",
+    "response": "The image features a colorful, vintage Volkswagen bus parked in front of a red brick building. The bus has a peace sign painted on its front, making it stand out. The building appears to be a theater, as indicated by the presence of a stage in the background.\n\nThere are two people in the scene, one standing near the left side of the bus and another closer to the right side. A bench is located near the right edge of the image, providing a place for people to sit and enjoy the surroundings.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "stage",
+      "people",
+      "bench"
+    ]
+  },
+  {
+    "id": 508,
+    "image": "AMBER_508.jpg",
+    "response": "The image features a dining table with a cup of coffee, a bowl of yogurt, and a spoon placed on it. The cup of coffee is positioned towards the left side of the table, while the bowl of yogurt is located towards the center. The spoon is placed next to the bowl, ready for use.\n\nIn addition to the main items, there is a cake on the table, which is placed towards the right side. The scene appears to be a casual and relaxed setting, possibly for breakfast or a snack.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "bowl",
+      "cake"
+    ]
+  },
+  {
+    "id": 559,
+    "image": "AMBER_559.jpg",
+    "response": "The image features a bathroom with a white toilet situated next to a sink. The toilet is covered with a black and white polka dot shower curtain, adding a playful touch to the space. The sink is located on the right side of the toilet, and there are several towels placed nearby, with one on the left side and another on the right side.\n\nIn addition to the towels, there are two bottles in the bathroom, one on the right side and the other closer to the sink. The overall scene is a cozy and functional bathroom space.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "sink",
+      "bottle"
+    ]
+  },
+  {
+    "id": 672,
+    "image": "AMBER_672.jpg",
+    "response": "The image features a stop sign situated on the side of a road, with a beautiful mountain range in the background. The stop sign is positioned near a grassy area, and there are trees surrounding the scene. A few cars are parked along the road, with one car closer to the foreground and two others further back.\n\nIn addition to the vehicles, there are two people in the scene, one near the middle of the image and another closer to the right side. The overall atmosphere of the image is serene, with the stop sign and the mountain range creating a picturesque scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "car",
+      "vehicle",
+      "people"
+    ]
+  },
+  {
+    "id": 705,
+    "image": "AMBER_705.jpg",
+    "response": "The image features a dining table with a blue and white plate containing a variety of vegetables. The vegetables include several pieces of broccoli, a tomato, and a carrot. The broccoli pieces are spread across the plate, with some placed closer to the edge and others more towards the center. The tomato and carrot are also visible on the plate, adding to the colorful and healthy assortment of vegetables. The plate is placed on the dining table, ready to be enjoyed as a delicious and nutritious meal.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "table",
+      "carrot"
+    ]
+  },
+  {
+    "id": 779,
+    "image": "AMBER_779.jpg",
+    "response": "The image features a wooden table with a pile of various electronic devices, including a remote control, a cell phone, and a landline telephone. The remote control is positioned towards the left side of the table, while the cell phone is located more towards the center. The landline telephone is placed towards the right side of the table.\n\nThe table appears to be a dining table, and the devices are scattered across its surface, creating a cluttered appearance. The arrangement of these items suggests that the table is being used as a temporary storage area for these electronic devices.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "phone",
+      "telephone"
+    ]
+  },
+  {
+    "id": 841,
+    "image": "AMBER_841.jpg",
+    "response": "The image captures a beautiful sunset over the ocean, with a vibrant orange sky and clouds scattered across the sky. The sun is setting behind a hill, casting a warm glow over the scene. The ocean is calm and serene, with a few boats scattered throughout the water. \n\nIn the foreground, a boat can be seen floating on the water, while another boat is located further away in the background. The combination of the sunset, the ocean, and the boats creates a peaceful and picturesque scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 908,
+    "image": "AMBER_908.jpg",
+    "response": "The image features a wooden table with a variety of electronic devices placed on it. There are two cell phones, one positioned towards the left side of the table and the other towards the right. A laptop computer is also present, situated in the middle of the table. \n\nIn addition to the electronic devices, there is a mouse located near the right edge of the table, and a remote control is placed slightly to the left of the mouse. A small white object can be seen in the upper left corner of the table, possibly a charging cable or a small accessory.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "computer",
+      "mouse",
+      "cable"
+    ]
+  },
+  {
+    "id": 4,
+    "image": "AMBER_4.jpg",
+    "response": "The image features a woman wearing a white shirt, standing on a boat and holding an oar in her hand. She appears to be paddling the boat, possibly enjoying a leisurely day out on the water. The boat is situated in a body of water, and the woman seems to be the main focus of the scene.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 8,
+    "image": "AMBER_8.jpg",
+    "response": "The image features a young child standing in a grassy field, holding a toothbrush in their mouth. The child appears to be enjoying their time outdoors, possibly playing with a toy duck. The duck is located in the middle of the field, close to the child.\n\nIn the background, there are several cars parked, indicating that the field might be near a parking area or a popular location. Additionally, there is a bottle visible in the scene, possibly belonging to the child or someone else in the area.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "toothbrush",
+      "car",
+      "bottle"
+    ]
+  },
+  {
+    "id": 35,
+    "image": "AMBER_35.jpg",
+    "response": "The image captures a beautiful sunset over the ocean, with two people standing on a pier, enjoying the view. They are positioned close to each other, with one person on the left and the other on the right. The pier extends out over the water, providing an excellent vantage point for watching the sunset.\n\nIn the background, there is a boat visible, adding to the serene atmosphere of the scene. The couple appears to be sharing a special moment, as they take in the stunning view of the sunset and the vast ocean.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "pier",
+      "boat"
+    ]
+  },
+  {
+    "id": 84,
+    "image": "AMBER_84.jpg",
+    "response": "The image features a young child, a toddler, sitting in a bathtub filled with water. The child is holding a yellow cup, possibly a sippy cup, and appears to be enjoying their time in the tub. The bathroom is equipped with a sink and a toilet, which are located on the left side of the room.\n\nThere are several bottles scattered around the bathroom, with one near the sink, another on the right side of the room, and a third one closer to the center. The presence of these bottles suggests that the child might be taking a bath or being bathed.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "sink",
+      "toilet"
+    ]
+  },
+  {
+    "id": 95,
+    "image": "AMBER_95.jpg",
+    "response": "The image features a blue and white bus parked in a lot, likely waiting for passengers. The bus is quite large, occupying most of the frame. There are several people in the scene, some of them standing near the bus, while others are scattered throughout the lot. \n\nA few chairs can be seen in the area, likely for passengers to sit while waiting for the bus. Additionally, there is a bench located near the bus, providing a place for people to sit and relax. The scene conveys a sense of anticipation as passengers prepare to board the bus.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "chair",
+      "bench",
+      "board"
+    ]
+  },
+  {
+    "id": 98,
+    "image": "AMBER_98.jpg",
+    "response": "The image features a shirtless man standing on a sandy beach, reaching up to catch a frisbee in his hand. He appears to be in the middle of an athletic move, possibly jumping to catch the frisbee. The scene captures the man's focus and determination as he attempts to catch the frisbee.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "frisbee"
+    ]
+  },
+  {
+    "id": 127,
+    "image": "AMBER_127.jpg",
+    "response": "The image features a person sitting in a tent on a mountain, surrounded by a beautiful snowy landscape. The person appears to be enjoying the view and the serenity of the environment. The tent is located in a rocky area, and the person is positioned close to the center of the scene.\n\nIn addition to the person, there are several backpacks scattered around the area, likely containing their belongings. One backpack is placed near the left side of the person, another is located on the right side, and the third is situated further back in the scene. The presence of these backpacks suggests that the person might be on a hiking or camping trip in the mountains.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "backpack"
+    ]
+  },
+  {
+    "id": 161,
+    "image": "AMBER_161.jpg",
+    "response": "The image features a wooden bookshelf filled with various books. The books are arranged in a neat and orderly manner, with some of them placed horizontally and others vertically. The bookshelf is filled with an assortment of books, including a mix of different sizes and colors.\n\nIn addition to the books, there are two people visible in the scene. One person is located on the left side of the bookshelf, while the other person is standing near the center. The presence of these individuals adds a sense of life to the otherwise quiet and organized setting.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 172,
+    "image": "AMBER_172.jpg",
+    "response": "The image features a man and a woman playing a game of frisbee in a grassy field. The man is holding a frisbee in his hand, preparing to throw it. The woman is standing nearby, ready to catch the frisbee or participate in the game. \n\nThere are a couple of sports balls visible in the scene, one located closer to the man and the other one further away. The field is spacious and provides an ideal environment for the two players to enjoy their game.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "frisbee"
+    ]
+  },
+  {
+    "id": 213,
+    "image": "AMBER_213.jpg",
+    "response": "The image features a white bus parked in a parking lot, with a large orange and white sign on the side of it. The bus appears to be a tour bus, possibly associated with the Irvings of Carlisle. The parking lot is located near a building, and there are a few cars parked around the area.\n\nIn the vicinity, there are two people standing near the bus, possibly waiting to board or disembark. Additionally, there is a handbag placed on the ground close to one of the people, possibly belonging to them.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "board"
+    ]
+  }
+]
