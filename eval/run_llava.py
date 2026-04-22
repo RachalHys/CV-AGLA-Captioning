@@ -32,6 +32,11 @@ from torchvision import transforms
 
 def eval_model(args):
     disable_torch_init()
+
+    # Patch transformers to disable model kwargs validation for generation, allowing custom args like images and cd_alpha.
+    from transformers.generation.utils import GenerationMixin
+    GenerationMixin._validate_model_kwargs = lambda self, model_kwargs: None
+
     # Global PyTorch acceleration flags
     torch.set_float32_matmul_precision("high")
     torch.backends.cudnn.benchmark = True
@@ -63,9 +68,9 @@ def eval_model(args):
     model_path = os.path.expanduser(args.model_path)
     model_name = get_model_name_from_path(model_path)
     tokenizer, model, image_processor, context_len = load_pretrained_model(
-        model_path, args.model_base, model_name, 
+        model_path, args.model_base, model_name,
         load_8bit=load_8bit, load_4bit=load_4bit,
-        torch_dtype=compute_dtype, device_map=llava_device_map
+        torch_dtype=compute_dtype, device_map=llava_device_map,
     )
 
     # With device_map='auto', the vision tower can be on any GPU.
@@ -75,7 +80,7 @@ def eval_model(args):
     
     # --- LOAD BLIP VQA & YOLO-SAM ---
     if args.use_agla:
-        print("Loading BLIP Inventory and YOLO-SAM Augmenter...")
+        print("Loading BLIP Inventory Detector and YOLO-SAM Augmenter...")
         inventory_detector = BLIPInventoryDetector(device=device_blip)
         augmenter = YoloSamAugmenter(device=device_blip)
     else:
@@ -100,100 +105,98 @@ def eval_model(args):
     os.makedirs(os.path.dirname(answers_file), exist_ok=True)
     # File I/O with explicit UTF-8 encoding
     ans_file = open(answers_file, "w", encoding="utf-8")
-    FLUSH_CYCLE        = 25 # Flush the file every 25 lines to avoid data loss
-    CACHE_CLEAR_CYCLE  = 1 # Clear CUDA cache every 100 lines to manage memory in long runs
+    FLUSH_CYCLE       = 25 # Flush the file every 25 lines to avoid data loss
+    CACHE_CLEAR_CYCLE = 1 # Clear CUDA cache every lines to manage memory in long runs
 
-    loader = transforms.Compose([transforms.ToTensor()])
-    # Caching avoids redundant CPU tokenization for repeated prompts, which can happen in some datasets. The cache key is the raw query string.
-    _tok_cache: dict = {}
-    for i, line in enumerate(tqdm(questions)):
-        idx = line.get("id") or line.get("question_id")
-        image_file = line["image"]
-        raw_query = line.get("query") or line.get("text") or ""
-        
-        # Use --prompt-suffix to add an optional suffix when needed.
-        final_query = raw_query + (" " + args.prompt_suffix if args.prompt_suffix else "")
+    with torch.inference_mode():
+        for i, line in enumerate(tqdm(questions)):
+            idx = line.get("id") or line.get("question_id")
+            image_file = line["image"]
+            raw_query = line.get("query") or line.get("text") or ""
+            
+            # Use --prompt-suffix to add an optional suffix when needed.
+            final_query = raw_query + (" " + args.prompt_suffix if args.prompt_suffix else "")
 
-        if model.config.mm_use_im_start_end:
-            qs = DEFAULT_IM_START_TOKEN + DEFAULT_IMAGE_TOKEN + DEFAULT_IM_END_TOKEN + "\n" + final_query
-        else:
-            qs = DEFAULT_IMAGE_TOKEN + "\n" + final_query
+            if model.config.mm_use_im_start_end:
+                qs = DEFAULT_IM_START_TOKEN + DEFAULT_IMAGE_TOKEN + DEFAULT_IM_END_TOKEN + "\n" + final_query
+            else:
+                qs = DEFAULT_IMAGE_TOKEN + "\n" + final_query
 
-        conv = conv_templates[args.conv_mode].copy()
-        conv.append_message(conv.roles[0], qs) 
-        conv.append_message(conv.roles[1], None)
-        prompt = conv.get_prompt()
+            conv = conv_templates[args.conv_mode].copy()
+            conv.append_message(conv.roles[0], qs)
+            conv.append_message(conv.roles[1], None)
+            prompt = conv.get_prompt()
 
-        # Text inputs go to LLM's base device
-        input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(model.device)
-        raw_image = Image.open(os.path.join(args.image_folder, image_file)).convert("RGB")
-        # Main image → vision tower device dynamically casted to compute_dtype
-        raw_image_tensor = image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True)
-        
-        image_tensor_cd = None
-
-        if args.use_agla:
-            # Get object list
-            object_list = inventory_detector.get_inventory(raw_image)
-
-            # Create augmented view
-            augmented_image_pil = augmenter.augmentation(
-                raw_image=raw_image, 
-                object_list=object_list, 
-                conf_threshold=args.yolo_conf, 
-                expansion_ratio=args.expansion_ratio
-            )
-
-            image_tensor_cd = image_processor.preprocess(augmented_image_pil, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device)
-        else:
+            # Text inputs go to LLM's base device
+            input_ids = (tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(model.device))
+            raw_image = Image.open(os.path.join(args.image_folder, image_file)).convert("RGB")
+            # Main image → vision tower device dynamically casted to compute_dtype
+            raw_image_tensor = (image_processor.preprocess(raw_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True))
+            
             image_tensor_cd = None
+            augmented_image_pil = None
 
-            augmented_image = augmentation(image_itm_input, itm_text, tensor_image, model_itm, tokenized_text, raw_image)
-            # Send CD image to vt_device and cast to compute_dtype
-            image_tensor_cd = image_processor.preprocess(augmented_image, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True)
-        # Stopping criteria
-        stop_str = conv.sep if conv.sep_style != SeparatorStyle.TWO else conv.sep2
-        stopping_criteria = KeywordsStoppingCriteria([stop_str], tokenizer, input_ids)
+            if args.use_agla:
+                # Get object list
+                object_list = inventory_detector.get_inventory(raw_image)
 
-        with torch.inference_mode():
+                # Create augmented view
+                augmented_image_pil = augmenter.augmentation(
+                    raw_image=raw_image,
+                    object_list=object_list,
+                    conf_threshold=args.yolo_conf,
+                    expansion_ratio=args.expansion_ratio,
+                )
+
+                # Step 3: augmented_pil is None when YOLO finds nothing → skip CD.
+                if augmented_image_pil is not None:
+                    image_tensor_cd = (image_processor.preprocess(augmented_image_pil, return_tensors="pt")["pixel_values"][0].to(dtype=compute_dtype, device=vt_device, non_blocking=True))
+
+            # Stopping criteria
+            stop_str = conv.sep if conv.sep_style != SeparatorStyle.TWO else conv.sep2
+            stopping_criteria = KeywordsStoppingCriteria([stop_str], tokenizer, input_ids)
+
+            
             output_ids = model.generate(
                 input_ids,
                 images=raw_image_tensor.unsqueeze(0),
                 images_cd=(image_tensor_cd.unsqueeze(0) if image_tensor_cd is not None else None),
                 cd_alpha=args.alpha,
+                cd_alpha_min  = args.alpha_min,
                 cd_beta=args.beta,
+                cd_use_dynamic_alpha = args.use_dynamic_alpha,
                 do_sample=True,
-                temperature=args.temperature, 
+                temperature=args.temperature,
                 top_p=args.top_p,
                 top_k=args.top_k,
                 max_new_tokens=args.max_new_tokens,
                 use_cache=True,
                 stopping_criteria=[stopping_criteria],
             )
+                
+            input_token_len = input_ids.shape[1]
+            outputs = tokenizer.batch_decode(output_ids[:, input_token_len:], skip_special_tokens=True)[0].strip()
+            if outputs.endswith(stop_str):
+                outputs = outputs[: -len(stop_str)].strip()
+
+            ans_file.write(json.dumps({
+                "id": idx,
+                "prompt": prompt,
+                "response": outputs,
+                "image": image_file,
+            }, ensure_ascii=False) + "\n")
+
+            if args.use_agla and augmented_image_pil is not None:
+                del augmented_image_pil, image_tensor_cd
+                image_tensor_cd = None
             
-        input_token_len = input_ids.shape[1]
-        outputs = tokenizer.batch_decode(output_ids[:, input_token_len:], skip_special_tokens=True)[0].strip()
+            del input_ids, raw_image, raw_image_tensor, output_ids
 
-        if outputs.endswith(stop_str):
-            outputs = outputs[:-len(stop_str)].strip()
-
-        ans_file.write(json.dumps({
-            "id": idx,
-            "prompt": prompt,
-            "response": outputs,
-            "image": image_file,
-        }, ensure_ascii=False) + "\n")
-
-        if args.use_agla:
-            del image_itm_input, augmented_image, image_tensor_cd
-            del tensor_image, tokenized_text
-        
-        step = i + 1
-        if step % FLUSH_CYCLE == 0:
-            ans_file.flush()
-        if step % CACHE_CLEAR_CYCLE == 0:
-            torch.cuda.empty_cache()
-        
+            step = i + 1
+            if step % FLUSH_CYCLE == 0:
+                ans_file.flush()
+            if step % CACHE_CLEAR_CYCLE == 0:
+                torch.cuda.empty_cache()
     ans_file.close()
     print(f"✅ Finished! Results saved to {ans_file.name}")
 
@@ -213,15 +216,15 @@ if __name__ == "__main__":
     parser.add_argument("--prompt-suffix", type=str, default="", help="Optional suffix appended to every query.")
     parser.add_argument("--num-gpus", type=int, default=1, help="Number of GPUs: 1 or 2.")
     parser.add_argument("--precision", type=str, choices=["fp16", "bf16", "int8", "int4"], default="fp16", help="Model precision format.")
-    parser.add_argument("--agla-size", type=str, default="large", choices=["base", "large"], help="'large'=AGLA full (307M), 'base'=AGLA-small (120M)")
     parser.add_argument("--max-questions", type=int, default=None, help="Maximum number of questions to process. Default is ALL.")
-    
     # arg to customise yolo conf and SAM expansion ratio
     parser.add_argument("--yolo-conf", type=float, default=0.20, help="YOLO object detection confidence threshold.")
     parser.add_argument("--expansion-ratio", type=float, default=0.0, help="SAM mask expansion (dilation) ratio.")
 
-    parser.add_argument("--alpha", type=float, default=2.0)
-    parser.add_argument("--beta", type=float, default=0.5)
+    parser.add_argument("--alpha", type=float, default=2.0, help="Static α (or max α when dynamic).")
+    parser.add_argument("--alpha-min", type=float, default=0.5, help="Min α when --use-dynamic-alpha is set.")
+    parser.add_argument("--beta", type=float, default=0.5, help="β: plausibility constraint threshold.")
+    parser.add_argument("--use-dynamic-alpha", action="store_true", default=False, help="Enable dynamic α algorithm")
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
     set_seed(args.seed)

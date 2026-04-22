@@ -43,9 +43,14 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
     --image-folder {IMAGE_FOLDER} \
     --question-file {QUESTION_FILE} \
     --answers-file {OUTPUT_FILE} \
-    --num-gpus 2 \
     --precision fp16 \
     --use_agla \
+    --use-dynamic-alpha \
+    --alpha 2.0 \
+    --alpha-min 0.5 \
+    --beta 0.5 \
+    --yolo-conf 0.2 \
+    --expansion-ratio 0.0 \
     2>&1 | tee run_log_llava.txt
 ```
 
@@ -95,6 +100,12 @@ python eval/run_llava.py \
     --answers-file AMBER/amber_llava_sam_output.jsonl \
     --precision fp16 \
     --use_agla \
+    --use-dynamic-alpha \
+    --alpha 2.0 \
+    --alpha-min 0.5 \
+    --beta 0.5 \
+    --yolo-conf 0.2 \
+    --expansion-ratio 0.0 \
     2>&1 | tee run_log_llava.txt
 ```
 *(Note: Change `--num-gpus 2` to `1` and `--precision fp16` to `int8` if you only have a single GPU with limit VRAM).*
