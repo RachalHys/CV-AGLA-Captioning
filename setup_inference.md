@@ -44,12 +44,13 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
     --question-file {QUESTION_FILE} \
     --answers-file {OUTPUT_FILE} \
     --precision fp16 \
+    --num-gpus 2 \
     --use_agla \
     --use-dynamic-alpha \
-    --alpha 2.0 \
+    --alpha 1.0 \
     --alpha-min 0.5 \
     --beta 0.5 \
-    --yolo-conf 0.2 \
+    --yolo-conf 0.15 \
     --expansion-ratio 0.0 \
     2>&1 | tee run_log_llava.txt
 ```

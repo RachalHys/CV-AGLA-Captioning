@@ -76,7 +76,6 @@ def eval_model(args):
     # With device_map='auto', the vision tower can be on any GPU.
     vision_tower = model.get_vision_tower()
     vt_device = next(vision_tower.parameters()).device
-    runtime_dtype_itm = torch.bfloat16 if has_bf16 else torch.float16
     
     # --- LOAD BLIP VQA & YOLO-SAM ---
     if args.use_agla:
@@ -218,10 +217,10 @@ if __name__ == "__main__":
     parser.add_argument("--precision", type=str, choices=["fp16", "bf16", "int8", "int4"], default="fp16", help="Model precision format.")
     parser.add_argument("--max-questions", type=int, default=None, help="Maximum number of questions to process. Default is ALL.")
     # arg to customise yolo conf and SAM expansion ratio
-    parser.add_argument("--yolo-conf", type=float, default=0.20, help="YOLO object detection confidence threshold.")
+    parser.add_argument("--yolo-conf", type=float, default=0.15, help="YOLO object detection confidence threshold.")
     parser.add_argument("--expansion-ratio", type=float, default=0.0, help="SAM mask expansion (dilation) ratio.")
 
-    parser.add_argument("--alpha", type=float, default=2.0, help="Static α (or max α when dynamic).")
+    parser.add_argument("--alpha", type=float, default=1.0, help="Static α (or max α when dynamic).")
     parser.add_argument("--alpha-min", type=float, default=0.5, help="Min α when --use-dynamic-alpha is set.")
     parser.add_argument("--beta", type=float, default=0.5, help="β: plausibility constraint threshold.")
     parser.add_argument("--use-dynamic-alpha", action="store_true", default=False, help="Enable dynamic α algorithm")

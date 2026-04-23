@@ -55,6 +55,7 @@ def init():
 
 def main(args):
     metrics = init()
+    result_text = ""
     association = json.load(open(args.word_association, 'r', encoding='utf-8'))
     hallucination_words = []
     for word1 in association.keys():

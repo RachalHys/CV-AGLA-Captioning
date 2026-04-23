@@ -96,7 +96,16 @@ class BLIPInventoryDetector:
 
         # Extract and clean the answers
         ans_anim = answers[0]
-        ans_ppl  = "person" if "yes" in answers[1] else ""
+
+        person_nouns  = ["person", "people", "man", "woman", "boy", "girl", "child", "human", "men", "women", "children", "guy", "lady", "gentleman"]
+        ans_ppl  = answers[1].lower().strip()
+        if "no" in ans_ppl or "none" in ans_ppl: 
+            ans_ppl = ""
+        elif "yes" in ans_ppl or any(w in ans_ppl for w in person_nouns):
+            ans_ppl = "person"
+        else:
+            ans_ppl = ""
+                           
         ans_misc = answers[2]
         ans_elec = answers[3]
         
