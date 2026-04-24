@@ -21,28 +21,6 @@ import transformers
 from transformers.generation.utils import SampleOutput, SampleEncoderDecoderOutput, SampleDecoderOnlyOutput
 from transformers.generation.streamers import BaseStreamer
 
-def _jensen_shannon_divergence(p: torch.Tensor, q: torch.Tensor) -> torch.Tensor:
-    """
-    Jensen-Shannon divergence JSD(p||q) = 0.5*KL(p||m) + 0.5*KL(q||m), m=(p+q)/2.
-    Returns scalar per batch element in [0, ln(2)] ≈ [0, 0.693].
-
-    WHY JSD NOT KL:
-      - KL(p||q) = +inf when q[i]=0 and p[i]>0  (common with half-precision logits).
-      - JSD is always bounded [0, ln(2)], symmetric, and numerically stable.
-
-    WHY torch.xlogy AND LOG-SPLIT:
-      - IEEE 754: 0.0 * (-inf) = nan.
-      - `torch.xlogy(x, y)` mathematically implements 0*log(0) = 0 safely.
-      - We use xlogy(p, p) - xlogy(p, m) to avoid the division p/m entirely.
-      - This eliminates the need for .clamp() and prevents precision loss on extremely rare tokens.
-    """
-    m = 0.5 * (p + q)
-    
-    kl_pm = (torch.xlogy(p, p) - torch.xlogy(p, m)).sum(dim=-1)
-    kl_qm = (torch.xlogy(q, q) - torch.xlogy(q, m)).sum(dim=-1)
-    
-    return 0.5 * kl_pm + 0.5 * kl_qm   # [B], ∈ [0, ln(2)]
-
 def sample(
     self,
     input_ids: torch.LongTensor,
@@ -114,11 +92,9 @@ def sample(
     use_cd = model_kwargs.get("images_cd") is not None
     log_cd_beta = None
     cd_alpha_t = None
-    alpha_min_t     = None
-    alpha_max_t     = None
     model_kwargs_cd = None
 
-    use_dynamic_alpha = model_kwargs.get("cd_use_dynamic_alpha", False)
+    fusion_mode = model_kwargs.get("cd_fusion_mode", "additive")
 
     cd_output_attentions = (
         output_attentions if output_attentions is not None else self.generation_config.output_attentions
@@ -131,16 +107,10 @@ def sample(
     # then maintains its own past_key_values independently via
     # _update_model_kwargs_for_generation at the end of every step.
     if use_cd:
-        #We compute log_cd_beta and cd_alpha_t here since they are constant across the generation process
-        alpha = model_kwargs.get("cd_alpha", 1.0) # static α or max α
+        alpha = model_kwargs.get("cd_alpha", 2.0)
         beta = model_kwargs.get("cd_beta", 0.5)
-        alpha_min = model_kwargs.get("cd_alpha_min", 0.5)   # min α for dynamic mode
         log_cd_beta = torch.log(torch.tensor(beta, device=input_ids.device, dtype=torch.float32))
-        
-        # Take the log of beta and convert to a tensor on the same device as input_ids for later use in the generation loop
-        cd_alpha_t = torch.tensor(alpha,     device=input_ids.device, dtype=torch.float32)
-        alpha_min_t = torch.tensor(alpha_min, device=input_ids.device, dtype=torch.float32)
-        alpha_max_t = cd_alpha_t   # alpha arg is the ceiling when dynamic
+        cd_alpha_t = torch.tensor(alpha, device=input_ids.device, dtype=torch.float32)
 
         # Shallow copy for initialisation: past_key_values is None
         # at this point so both dicts start from the same clean state.
@@ -160,7 +130,6 @@ def sample(
 
         # prepare model inputs
         model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
-        # model_inputs.pop('position_ids')
         # forward pass to get next token
         outputs = self(
             **model_inputs,
@@ -190,35 +159,16 @@ def sample(
             # Cast scalars to match logit dtype to avoid implicit promotion
             logits_dtype = next_token_logits.dtype
             log_cd_beta_typed = log_cd_beta.to(logits_dtype)
-        
-            # Dynamic alpha based on JSD:
-            #   Low JSD (distributions agree)   → low α → original view dominates
-            #   High JSD (distributions differ) → high α → augmented view corrects
-            #
-            # This applies strong correction for object-naming tokens (where
-            # hallucinations occur) and near-zero correction for grammar tokens
-            # (where both views agree), giving per-step adaptive regularization.
-            if use_dynamic_alpha:
-                p_orig = F.softmax(next_token_logits.float(),    dim=-1)   # [B, V]
-                p_aug  = F.softmax(next_token_logits_cd.float(), dim=-1)   # [B, V]
+            cd_alpha_typed = cd_alpha_t.to(logits_dtype)
 
-                jsd = _jensen_shannon_divergence(p_orig, p_aug)            # [B] ∈ [0, ln2]
-
-                # Normalize JSD to [0, 1].  ln(2) ≈ 0.6931
-                jsd_norm = (jsd / 0.6931).clamp(0.0, 1.0)                 # [B]
-
-                # Linear interpolation: alpha_min at JSD=0, alpha_max at JSD=ln2
-                alpha_dynamic = (
-                    alpha_min_t + (alpha_max_t - alpha_min_t) * jsd_norm
-                ).to(logits_dtype)                                         # [B]
-
-                cd_alpha_typed = alpha_dynamic.unsqueeze(-1)               # [B, 1]
-            else:
-                # Static alpha
-                cd_alpha_typed = cd_alpha_t.to(logits_dtype)               # scalar
-
+            # Plausibility constraint: only keep tokens the original considers plausible
             cutoff = log_cd_beta_typed + next_token_logits.max(dim=-1, keepdim=True).values
-            diffs = (next_token_logits + cd_alpha_typed * next_token_logits_cd)
+            if fusion_mode == "subtractive":
+                # Subtractive: (1+α)·logit_orig - α·logit_scene
+                diffs = (1.0 + cd_alpha_typed) * next_token_logits - cd_alpha_typed * next_token_logits_cd
+            else:
+                # Additive (default): logit_orig + α·logit_scene
+                diffs = next_token_logits + cd_alpha_typed * next_token_logits_cd
 
             cd_logits = diffs.masked_fill(next_token_logits < cutoff, -float("inf"))
 
@@ -266,7 +216,6 @@ def sample(
         
         # update generated ids, model inputs, and length for next step
         input_ids = torch.cat([input_ids, next_tokens[:, None]], dim=-1)
-        # print(input_ids)
         if streamer is not None:
             streamer.put(next_tokens.cpu())
         model_kwargs = self._update_model_kwargs_for_generation(

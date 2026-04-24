@@ -7,7 +7,7 @@ from ultralytics import YOLOWorld
 from mobile_sam import sam_model_registry, SamPredictor
 _MAX_DILATION_PX = 50
 _MIN_COVERAGE = 0.15
-_BG_BLEND_ALPHA = 0.10
+_OBJ_BLEND_ALPHA = 0.0
 
 class YoloSamAugmenter:
     def __init__(self, yolo_id="yolov8s-world.pt", sam_checkpoint="mobile_sam.pt", device="cuda:1"):
@@ -70,9 +70,8 @@ class YoloSamAugmenter:
         coverage = combined_mask.sum() / (h * w)
         if coverage < _MIN_COVERAGE:
             return None
-        # Apply mask on the original image
         masked_image = image_np.copy().astype(np.float32)
-        masked_image[~combined_mask] *= _BG_BLEND_ALPHA
+        masked_image[combined_mask] *= _OBJ_BLEND_ALPHA
         masked_image = np.clip(masked_image, 0, 255).astype(np.uint8)
         
         return Image.fromarray(masked_image)

@@ -161,9 +161,8 @@ def eval_model(args):
                 images=raw_image_tensor.unsqueeze(0),
                 images_cd=(image_tensor_cd.unsqueeze(0) if image_tensor_cd is not None else None),
                 cd_alpha=args.alpha,
-                cd_alpha_min  = args.alpha_min,
                 cd_beta=args.beta,
-                cd_use_dynamic_alpha = args.use_dynamic_alpha,
+                cd_fusion_mode=args.fusion_mode, # 'additive' or 'subtractive'
                 do_sample=True,
                 temperature=args.temperature,
                 top_p=args.top_p,
@@ -216,14 +215,13 @@ if __name__ == "__main__":
     parser.add_argument("--num-gpus", type=int, default=1, help="Number of GPUs: 1 or 2.")
     parser.add_argument("--precision", type=str, choices=["fp16", "bf16", "int8", "int4"], default="fp16", help="Model precision format.")
     parser.add_argument("--max-questions", type=int, default=None, help="Maximum number of questions to process. Default is ALL.")
-    # arg to customise yolo conf and SAM expansion ratio
-    parser.add_argument("--yolo-conf", type=float, default=0.15, help="YOLO object detection confidence threshold.")
+    parser.add_argument("--yolo-conf", type=float, default=0.20, help="YOLO object detection confidence threshold.")
     parser.add_argument("--expansion-ratio", type=float, default=0.0, help="SAM mask expansion (dilation) ratio.")
 
-    parser.add_argument("--alpha", type=float, default=1.0, help="Static α (or max α when dynamic).")
-    parser.add_argument("--alpha-min", type=float, default=0.5, help="Min α when --use-dynamic-alpha is set.")
+    parser.add_argument("--alpha", type=float, default=2.0, help="Static α for contrastive decoding.")
     parser.add_argument("--beta", type=float, default=0.5, help="β: plausibility constraint threshold.")
-    parser.add_argument("--use-dynamic-alpha", action="store_true", default=False, help="Enable dynamic α algorithm")
+    parser.add_argument("--fusion-mode", type=str, default="additive", choices=["additive", "subtractive"],
+                        help="'additive': logit_orig + α·logit_scene (proven). 'subtractive': (1+α)·logit_orig - α·logit_scene (proposed Cover boost).")
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
     set_seed(args.seed)
