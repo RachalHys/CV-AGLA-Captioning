@@ -6,8 +6,7 @@ from PIL import Image
 from ultralytics import YOLOWorld
 from mobile_sam import sam_model_registry, SamPredictor
 _MAX_DILATION_PX = 50
-_MIN_COVERAGE = 0.15
-_OBJ_BLEND_ALPHA = 0.0
+_MIN_COVERAGE = 0.10
 
 class YoloSamAugmenter:
     def __init__(self, yolo_id="yolov8s-world.pt", sam_checkpoint="mobile_sam.pt", device="cuda:1"):
@@ -32,8 +31,8 @@ class YoloSamAugmenter:
     # create the augmented view
     # input: original image and list of objects
     # output: masked image or None if no objects found
-    def augmentation(self, raw_image: Image.Image, object_list: list, conf_threshold=0.2, expansion_ratio=0.0) -> "Image.Image | None":
-        if not object_list:
+    def augmentation(self, raw_image: Image.Image, object_list: list, conf_threshold=0.20, expansion_ratio=0.0) -> "Image.Image | None":
+        if not object_list or len(object_list) == 0:
             return None
 
         # Find bounding boxes
@@ -70,8 +69,7 @@ class YoloSamAugmenter:
         coverage = combined_mask.sum() / (h * w)
         if coverage < _MIN_COVERAGE:
             return None
-        masked_image = image_np.copy().astype(np.float32)
-        masked_image[combined_mask] *= _OBJ_BLEND_ALPHA
-        masked_image = np.clip(masked_image, 0, 255).astype(np.uint8)
+        masked_image = image_np.copy()
+        masked_image[~combined_mask] = 0
         
         return Image.fromarray(masked_image)

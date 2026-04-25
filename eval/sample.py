@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Tuple, Union
 
 import torch
-import torch.nn.functional as F
 import torch.distributed as dist
 from torch import nn
 
@@ -94,8 +93,7 @@ def sample(
     cd_alpha_t = None
     model_kwargs_cd = None
 
-    fusion_mode = model_kwargs.get("cd_fusion_mode", "additive")
-
+    # For contrastive decoding initial
     cd_output_attentions = (
         output_attentions if output_attentions is not None else self.generation_config.output_attentions
     )
@@ -107,8 +105,11 @@ def sample(
     # then maintains its own past_key_values independently via
     # _update_model_kwargs_for_generation at the end of every step.
     if use_cd:
-        alpha = model_kwargs.get("cd_alpha", 2.0)
+        #We compute log_cd_beta and cd_alpha_t here since they are constant across the generation process
+        alpha = model_kwargs.get("cd_alpha", 1.0)
         beta = model_kwargs.get("cd_beta", 0.5)
+        
+        # Take the log of beta and convert to a tensor on the same device as input_ids for later use in the generation loop
         log_cd_beta = torch.log(torch.tensor(beta, device=input_ids.device, dtype=torch.float32))
         cd_alpha_t = torch.tensor(alpha, device=input_ids.device, dtype=torch.float32)
 
@@ -130,6 +131,7 @@ def sample(
 
         # prepare model inputs
         model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+        # model_inputs.pop('position_ids')
         # forward pass to get next token
         outputs = self(
             **model_inputs,
@@ -161,14 +163,8 @@ def sample(
             log_cd_beta_typed = log_cd_beta.to(logits_dtype)
             cd_alpha_typed = cd_alpha_t.to(logits_dtype)
 
-            # Plausibility constraint: only keep tokens the original considers plausible
             cutoff = log_cd_beta_typed + next_token_logits.max(dim=-1, keepdim=True).values
-            if fusion_mode == "subtractive":
-                # Subtractive: (1+α)·logit_orig - α·logit_scene
-                diffs = (1.0 + cd_alpha_typed) * next_token_logits - cd_alpha_typed * next_token_logits_cd
-            else:
-                # Additive (default): logit_orig + α·logit_scene
-                diffs = next_token_logits + cd_alpha_typed * next_token_logits_cd
+            diffs = (next_token_logits + cd_alpha_typed * next_token_logits_cd)
 
             cd_logits = diffs.masked_fill(next_token_logits < cutoff, -float("inf"))
 
@@ -216,6 +212,7 @@ def sample(
         
         # update generated ids, model inputs, and length for next step
         input_ids = torch.cat([input_ids, next_tokens[:, None]], dim=-1)
+        # print(input_ids)
         if streamer is not None:
             streamer.put(next_tokens.cpu())
         model_kwargs = self._update_model_kwargs_for_generation(

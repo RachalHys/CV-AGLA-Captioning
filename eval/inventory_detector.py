@@ -99,7 +99,7 @@ class BLIPInventoryDetector:
 
         person_nouns  = ["person", "people", "man", "woman", "boy", "girl", "child", "human", "men", "women", "children", "guy", "lady", "gentleman"]
         ans_ppl  = answers[1].lower().strip()
-        if "no" in ans_ppl or "none" in ans_ppl: 
+        if re.search(r'\bno\b|\bnot\b|\bnone\b', ans_ppl):
             ans_ppl = ""
         elif "yes" in ans_ppl or any(w in ans_ppl for w in person_nouns):
             ans_ppl = "person"

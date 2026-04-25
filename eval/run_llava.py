@@ -105,7 +105,7 @@ def eval_model(args):
     # File I/O with explicit UTF-8 encoding
     ans_file = open(answers_file, "w", encoding="utf-8")
     FLUSH_CYCLE       = 25 # Flush the file every 25 lines to avoid data loss
-    CACHE_CLEAR_CYCLE = 1 # Clear CUDA cache every lines to manage memory in long runs
+    CACHE_CLEAR_CYCLE = 100 # Clear CUDA cache every lines to manage memory in long runs
 
     with torch.inference_mode():
         for i, line in enumerate(tqdm(questions)):
@@ -162,7 +162,6 @@ def eval_model(args):
                 images_cd=(image_tensor_cd.unsqueeze(0) if image_tensor_cd is not None else None),
                 cd_alpha=args.alpha,
                 cd_beta=args.beta,
-                cd_fusion_mode=args.fusion_mode, # 'additive' or 'subtractive'
                 do_sample=True,
                 temperature=args.temperature,
                 top_p=args.top_p,
@@ -186,7 +185,6 @@ def eval_model(args):
 
             if args.use_agla and augmented_image_pil is not None:
                 del augmented_image_pil, image_tensor_cd
-                image_tensor_cd = None
             
             del input_ids, raw_image, raw_image_tensor, output_ids
 
@@ -215,13 +213,11 @@ if __name__ == "__main__":
     parser.add_argument("--num-gpus", type=int, default=1, help="Number of GPUs: 1 or 2.")
     parser.add_argument("--precision", type=str, choices=["fp16", "bf16", "int8", "int4"], default="fp16", help="Model precision format.")
     parser.add_argument("--max-questions", type=int, default=None, help="Maximum number of questions to process. Default is ALL.")
+    # arg to customise yolo conf and SAM expansion ratio
     parser.add_argument("--yolo-conf", type=float, default=0.20, help="YOLO object detection confidence threshold.")
     parser.add_argument("--expansion-ratio", type=float, default=0.0, help="SAM mask expansion (dilation) ratio.")
-
-    parser.add_argument("--alpha", type=float, default=2.0, help="Static α for contrastive decoding.")
-    parser.add_argument("--beta", type=float, default=0.5, help="β: plausibility constraint threshold.")
-    parser.add_argument("--fusion-mode", type=str, default="additive", choices=["additive", "subtractive"],
-                        help="'additive': logit_orig + α·logit_scene (proven). 'subtractive': (1+α)·logit_orig - α·logit_scene (proposed Cover boost).")
+    parser.add_argument("--alpha", type=float, default=2.0)
+    parser.add_argument("--beta", type=float, default=0.5)
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
     set_seed(args.seed)

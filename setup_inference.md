@@ -12,11 +12,11 @@
 ```python
 import os
 %cd /kaggle/working
-!rm -rf CV-AGLA-Improvement
+!rm -rf CV-AGLA-Captioning
 
 # 1. Clone the integration branch
-!git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Improvement.git
-%cd CV-AGLA-Improvement
+!git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Captioning.git
+%cd CV-AGLA-Captioning
 
 # 2. Install dependencies
 !pip install -r test_requirements.txt
@@ -32,7 +32,7 @@ nltk.download('wordnet')
 
 ### Cell 2: Run Inference
 ```python
-%cd /kaggle/working/CV-AGLA-Improvement
+%cd /kaggle/working/CV-AGLA-Captioning
 
 # Set paths (Update IMAGE_FOLDER if using a different Kaggle dataset)
 IMAGE_FOLDER = "ENTER YOUR IMAGE FOLDER"
@@ -46,18 +46,17 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
     --precision fp16 \
     --num-gpus 2 \
     --use_agla \
-    --use-dynamic-alpha \
-    --alpha 1.0 \
-    --alpha-min 0.5 \
+    --max-new-tokens 180 \
+    --alpha 2.0 \
     --beta 0.5 \
-    --yolo-conf 0.15 \
+    --yolo-conf 0.2 \
     --expansion-ratio 0.0 \
     2>&1 | tee run_log_llava.txt
 ```
 
 ### Cell 3: Format & Evaluate
 ```python
-%cd /kaggle/working/CV-AGLA-Improvement/AMBER
+%cd /kaggle/working/CV-AGLA-Captioning/AMBER
 
 # 1. Convert output to AMBER format
 !python convert_amber_eval.py \
@@ -68,7 +67,7 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
 !python inference.py \
     --inference_data amber_eval.json \
     --evaluation_type g \
-    --top_k 20
+    --top_k 30
 ```
 
 ---
@@ -80,8 +79,8 @@ OUTPUT_FILE = "AMBER/amber_llava_sam_output.jsonl"
 ### Step 1: Clone & Install
 Open your terminal and run:
 ```bash
-git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Improvement.git
-cd CV-AGLA-Improvement
+git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Captioning.git
+cd CV-AGLA-Captioning
 
 # Install libraries
 pip install -r test_requirements.txt
@@ -100,10 +99,10 @@ python eval/run_llava.py \
     --question-file AMBER/amber_generative.jsonl \
     --answers-file AMBER/amber_llava_sam_output.jsonl \
     --precision fp16 \
+    --num-gpus 2 \
     --use_agla \
-    --use-dynamic-alpha \
+    --max-new-tokens 180 \
     --alpha 2.0 \
-    --alpha-min 0.5 \
     --beta 0.5 \
     --yolo-conf 0.2 \
     --expansion-ratio 0.0 \
@@ -119,5 +118,5 @@ cd AMBER
 python convert_amber_eval.py --input amber_llava_sam_output.jsonl --output amber_eval.json
 
 # Evaluate
-python inference.py --inference_data amber_eval.json --evaluation_type g --top_k 20
+python inference.py --inference_data amber_eval.json --evaluation_type g --top_k 30
 ```
