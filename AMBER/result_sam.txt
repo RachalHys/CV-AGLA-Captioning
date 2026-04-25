@@ -1,0 +1,8 @@
+100%|███████████████████████████████████████| 1004/1004 [02:08<00:00,  7.79it/s]
+
+Saved TOP-100 worst images into 'worst.json'
+Generative Task:
+CHAIR:		 6.9
+Cover:		 48.4
+Hal:		 30.7
+Cog:		 3.2 

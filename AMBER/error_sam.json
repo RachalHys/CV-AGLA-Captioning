@@ -1,0 +1,973 @@
+[
+  {
+    "id": 932,
+    "image": "AMBER_932.jpg",
+    "response": "The image features a laptop computer sitting on a bed, with a cell phone placed next to it. The laptop is open, and the cell phone is positioned on the right side of the laptop. There is also a book on the bed, located close to the laptop. \n\nIn addition to the laptop and cell phone, there are two earphones placed on the bed, one near the laptop and the other closer to the cell phone. A notebook can be seen on the left side of the laptop, and a pen is placed near the bottom left corner of the image. The scene gives off a cozy and relaxed atmosphere, as if someone is working or studying in a comfortable environment.",
+    "hallucination_count": 8,
+    "hallucinated_nouns": [
+      "bed",
+      "phone",
+      "book"
+    ]
+  },
+  {
+    "id": 116,
+    "image": "AMBER_116.jpg",
+    "response": "The image features a young boy and a young girl playing together in a grassy field. They are both wearing dresses, with the boy's dress being white and the girl's dress being blue. The boy is holding a toy, possibly a toy car, while the girl is also holding a toy, possibly a toy car or a toy doll. The children are enjoying their time outdoors, playing and exploring the grassy area.",
+    "hallucination_count": 7,
+    "hallucinated_nouns": [
+      "toy",
+      "car",
+      "doll"
+    ]
+  },
+  {
+    "id": 256,
+    "image": "AMBER_256.jpg",
+    "response": "The image features a small, cute toy, possibly a stuffed animal or a toy doll, sitting on the floor in a room. The toy is positioned in the center of the scene, and it appears to be the main focus of the image.\n\nThe room has a wooden wall, and there is a chair placed near the toy. The chair is situated on the right side of the room, occupying a significant portion of the space. The overall atmosphere of the room seems to be cozy and inviting, with the toy adding a touch of warmth and playfulness to the scene.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "toy",
+      "doll"
+    ]
+  },
+  {
+    "id": 525,
+    "image": "AMBER_525.jpg",
+    "response": "The image features a black and red steam train traveling down the tracks, with a large cloud of smoke billowing from its engine. The train is moving at a fast pace, and it appears to be the main focus of the scene.\n\nThere are several people visible in the image, with one person standing near the left side of the train, another person closer to the center, and a third person on the right side. The people seem to be observing the train as it passes by, possibly admiring its impressive steam engine and the smoke it emits.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "cloud",
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 541,
+    "image": "AMBER_541.jpg",
+    "response": "The image features a dining table with a plate containing a single, large orange sitting on top of it. The orange is prominently displayed in the center of the plate, taking up a significant portion of the table's surface.\n\nIn the background, there is a bowl placed on the table, and a few grapes can be seen scattered around the table. The grapes are located on the left side of the table and are placed at various heights, creating a visually appealing arrangement.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "table",
+      "bowl"
+    ]
+  },
+  {
+    "id": 779,
+    "image": "AMBER_779.jpg",
+    "response": "The image features a pile of various electronic devices, including a remote control, a cell phone, and a TV remote. The remote control is placed on top of the cell phone, which is resting on top of the TV remote. The cell phone is positioned towards the left side of the pile, while the TV remote is on the right side. The arrangement of these devices creates an interesting and somewhat cluttered scene.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "phone",
+      "tv"
+    ]
+  },
+  {
+    "id": 559,
+    "image": "AMBER_559.jpg",
+    "response": "The image features a bathroom with a white toilet sitting next to a sink. The toilet is positioned under a shower curtain, which is adorned with a black and white pattern. The sink is located to the right of the toilet, and a towel is placed on the countertop.\n\nThere are two towels in the bathroom, one near the sink and another further away. Additionally, there is a bottle on the countertop, possibly containing soap or other bathroom essentials.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "sink",
+      "bottle",
+      "soap"
+    ]
+  },
+  {
+    "id": 685,
+    "image": "AMBER_685.jpg",
+    "response": "The image features a table with a variety of fruits and vegetables. There is a banana prominently placed on the table, accompanied by an apple and an orange. The banana is situated towards the left side of the table, while the apple is located in the center, and the orange is on the right side. \n\nIn addition to the main fruits, there are two carrots placed on the table, one near the center and the other towards the right side. The table setting creates an inviting and healthy atmosphere, showcasing the fresh produce available for consumption.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "table",
+      "carrot"
+    ]
+  },
+  {
+    "id": 908,
+    "image": "AMBER_908.jpg",
+    "response": "The image features a wooden table with a cell phone, a laptop, and a mouse on it. The cell phone is positioned towards the left side of the table, while the laptop is placed in the center, and the mouse is located on the right side. The table appears to be a workspace, and the items on it suggest that someone is using the laptop for work or personal tasks.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "laptop",
+      "mouse"
+    ]
+  },
+  {
+    "id": 964,
+    "image": "AMBER_964.jpg",
+    "response": "The image features a table with a large number of shrimp on it. The shrimp are placed in various positions, with some sitting on the table and others on a plate. The shrimp are of different sizes and are spread out across the table.\n\nIn addition to the shrimp, there are a few slices of lemon placed on the table, with one near the top left corner, another in the middle-left, and the third one at the top right corner. The combination of shrimp and lemon slices creates a visually appealing and appetizing scene.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "table",
+      "plate"
+    ]
+  },
+  {
+    "id": 19,
+    "image": "AMBER_19.jpg",
+    "response": "The image features two people walking on a path near a body of water, possibly a beach or a lake. They are both wearing backpacks, with one backpack being larger and closer to the left person, and the other being smaller and closer to the right person. The two individuals are walking side by side, enjoying their time together in the beautiful outdoor setting.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "path",
+      "beach",
+      "backpack"
+    ]
+  },
+  {
+    "id": 127,
+    "image": "AMBER_127.jpg",
+    "response": "The image features a person sitting in a tent on a snowy mountain. The tent is set up on a rocky surface, providing shelter from the cold and snowy conditions. The person appears to be enjoying the view of the surrounding mountains, which are covered in snow.\n\nIn addition to the person and the tent, there are a few other objects in the scene. A backpack can be seen near the person, possibly containing essential supplies for their adventure. A bottle is also visible, likely containing water or other beverages. The overall atmosphere of the scene is one of adventure and exploration in a challenging environment.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "snow",
+      "backpack",
+      "bottle",
+      "water"
+    ]
+  },
+  {
+    "id": 272,
+    "image": "AMBER_272.jpg",
+    "response": "The image features a red suitcase sitting on a hardwood floor next to a black table. The suitcase is positioned towards the left side of the scene, while the table is located in the middle. There is also a green backpack placed on the table, situated towards the right side of the scene. The combination of the red suitcase, black table, and green backpack creates a visually appealing and organized setting.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "table"
+    ]
+  },
+  {
+    "id": 289,
+    "image": "AMBER_289.jpg",
+    "response": "The image features a park with two wooden benches situated on a lush green hillside. The benches are positioned close to each other, providing a comfortable spot for people to sit and enjoy the view. \n\nIn the background, there are two street lamps, one on the left side and the other on the right side of the benches. The street lamps are illuminating the area, creating a warm and inviting atmosphere for visitors to the park. The overall scene is serene and picturesque, with the benches and street lamps adding to the park's charm.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "people",
+      "street"
+    ]
+  },
+  {
+    "id": 580,
+    "image": "AMBER_580.jpg",
+    "response": "The image features a white plate with a piece of cake on it. The cake has a heart-shaped piece cut out of it, making it appear as a heart-shaped sandwich. A fork is placed on the plate, ready to be used to enjoy the delicious treat. The cake is placed on a dining table, which occupies the majority of the scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "cake",
+      "table"
+    ]
+  },
+  {
+    "id": 766,
+    "image": "AMBER_766.jpg",
+    "response": "The image features a beach scene with several people enjoying the ocean and flying kites. There are at least five kites visible in the sky, each with different shapes and sizes. Some of the kites are flying higher, while others are closer to the ground.\n\nThere are also several people on the beach, with one person standing near the center of the image and others scattered around the scene. The beach is bustling with activity, making it a lively and enjoyable location for people to spend their time.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "beach",
+      "ground"
+    ]
+  },
+  {
+    "id": 926,
+    "image": "AMBER_926.jpg",
+    "response": "The image features a serene scene of two people in a small boat on a large body of water. The boat is floating in the middle of the ocean, and the two individuals are enjoying their time together. The boat appears to be a canoe, and the two people are positioned in the middle of the boat, facing each other. The water is calm, and the sky is clear, creating a peaceful atmosphere for the two people to spend time together.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 933,
+    "image": "AMBER_933.jpg",
+    "response": "The image features a picturesque scene of a small bridge over a river, surrounded by trees and greenery. The bridge is covered in ivy, adding a touch of nature to the scene. The river reflects the bridge and the surrounding environment, creating a serene atmosphere.\n\nThere are a few people in the image, likely enjoying the peaceful surroundings. One person is standing near the left side of the bridge, while another person is positioned closer to the center of the scene. A third person is visible on the right side of the bridge, taking in the beautiful view.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 986,
+    "image": "AMBER_986.jpg",
+    "response": "The image features a snowy road with a single car driving down it. The car is located in the middle of the road, and the snow-covered landscape extends in both directions. The road appears to be a long, straight stretch with no other vehicles visible. The snowy conditions create a serene atmosphere, and the car seems to be the only occupant of the scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "car",
+      "vehicle"
+    ]
+  },
+  {
+    "id": 20,
+    "image": "AMBER_20.jpg",
+    "response": "The image features a group of people walking on a sandy beach, enjoying a sunny day. There are at least four individuals in the scene, with some of them walking closer to the water's edge. The people are wearing long dresses, which suggests that they might be women.\n\nThe beach is lined with a few boats, with one boat located closer to the left side of the image and another boat further back, closer to the center. The scene captures a peaceful and leisurely atmosphere, with the group of people strolling along the shore.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 100,
+    "image": "AMBER_100.jpg",
+    "response": "The image features a beach scene with two people, a man and a woman, standing on the sand. The woman is closer to the left side of the scene, while the man is on the right side. They appear to be enjoying their time at the beach.\n\nIn the background, there is a large body of water, likely the ocean, creating a serene and relaxing atmosphere. The beach is also home to a few birds, with one bird flying in the sky above the couple and another bird perched on the sand.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "bird"
+    ]
+  },
+  {
+    "id": 163,
+    "image": "AMBER_163.jpg",
+    "response": "The image features a woman with red hair sitting at a dining table. She is holding a lime in her hand, and there is a broccoli placed next to her on the table. The table also has a plate with a slice of watermelon and a bowl. The woman appears to be posing for the picture, possibly for a food blog or a magazine.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "watermelon",
+      "bowl",
+      "magazine"
+    ]
+  },
+  {
+    "id": 322,
+    "image": "AMBER_322.jpg",
+    "response": "The image features a black and white cat sitting on a carpeted floor, looking up at something in the distance. The cat appears to be focused on a toy or an object of interest, possibly a toy mouse. The carpeted floor provides a comfortable and cozy environment for the cat to rest and observe its surroundings.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "toy",
+      "mouse"
+    ]
+  },
+  {
+    "id": 358,
+    "image": "AMBER_358.jpg",
+    "response": "The image features a green and black truck parked on a gravel surface, possibly in a driveway. The truck has a flatbed and is parked next to a building. The truck appears to be old and possibly used for hauling purposes.\n\nIn addition to the truck, there are two people in the scene. One person is standing closer to the left side of the truck, while the other person is located on the right side. The presence of these individuals suggests that they might be the owners or users of the truck.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 380,
+    "image": "AMBER_380.jpg",
+    "response": "The image features a large white National Express bus parked in a parking lot. The bus is prominently displayed in the scene, taking up a significant portion of the image. The parking lot appears to be a designated area for buses, as there are a few other buses parked nearby.\n\nIn addition to the buses, there are two people in the scene. One person is located near the center of the image, while the other person is positioned more towards the right side. The presence of these individuals suggests that they might be passengers or staff members at the bus depot.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 388,
+    "image": "AMBER_388.jpg",
+    "response": "The image features a black and white cat sitting on the arm of a chair. The chair is positioned in the middle of the scene, and the cat appears to be relaxed and comfortable. The chair has a patterned cushion, adding a touch of visual interest to the scene.\n\nIn the background, there is a potted plant on the left side of the image, and a vase can be seen on the left side as well. Additionally, there is a clock on the wall, providing a sense of time to the setting.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "cushion",
+      "vase",
+      "clock"
+    ]
+  },
+  {
+    "id": 472,
+    "image": "AMBER_472.jpg",
+    "response": "The image features a hotel room with two twin beds placed side by side. The beds are covered with white sheets and blankets, giving them a clean and inviting appearance. The room is well-lit, with a lamp on each side of the beds, providing ample lighting for the guests. \n\nIn addition to the beds, there is a chair situated in the room, providing a comfortable seating option for the guests. A remote control can be found on one of the beds, likely for the television or other entertainment devices in the room.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "blanket",
+      "chair",
+      "television"
+    ]
+  },
+  {
+    "id": 477,
+    "image": "AMBER_477.jpg",
+    "response": "The image features a black and blue suitcase sitting on a tile floor, with a blue and black backpack placed next to it. The suitcase is positioned on the left side of the image, while the backpack is on the right. The backpack appears to be a smaller version of the suitcase, and both are placed on the floor, likely ready for travel or storage.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "backpack"
+    ]
+  },
+  {
+    "id": 496,
+    "image": "AMBER_496.jpg",
+    "response": "The image features a man wearing a helmet and a white and blue racing suit, sitting on a blue and white motorcycle. He appears to be the main focus of the scene, with his motorcycle taking up a significant portion of the image.\n\nThere are several other people in the background, some of whom are standing closer to the motorcycle, while others are further away. A few of them are wearing backpacks, with one backpack located near the center of the scene and another towards the right side.\n\nAdditionally, there is a car visible in the background, slightly to the left of the center of the image.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "backpack",
+      "car"
+    ]
+  },
+  {
+    "id": 508,
+    "image": "AMBER_508.jpg",
+    "response": "The image features a dining table with a cup of coffee and a bowl of yogurt placed on it. The cup of coffee is located on the left side of the table, while the bowl of yogurt is situated on the right side. A spoon is also present on the table, resting near the bowl of yogurt. The scene appears to be a casual breakfast or snack setup.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "bowl"
+    ]
+  },
+  {
+    "id": 526,
+    "image": "AMBER_526.jpg",
+    "response": "The image features a group of people flying kites in a large, open field. There are several kites of various shapes and sizes soaring in the sky, with some kites closer to the ground and others higher up. The kites are spread across the field, with some positioned closer to the left side, others in the center, and a few more towards the right side.\n\nThe people are enjoying their time flying the kites, creating a lively atmosphere in the field. The scene is set against a backdrop of a clear blue sky, which adds to the overall beauty of the image.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "ground"
+    ]
+  },
+  {
+    "id": 567,
+    "image": "AMBER_567.jpg",
+    "response": "The image features a small boat floating on a body of water, possibly a lake or a beach. The boat is situated in the middle of the scene, and it appears to be a canoe or a small motorboat. The boat is surrounded by a beautiful beach setting, with the water being the main focus of the image.\n\nThere are a few people visible in the scene, with one person standing close to the boat and two others further away. The presence of people suggests that they might be enjoying the beach or engaging in water-related activities.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 610,
+    "image": "AMBER_610.jpg",
+    "response": "The image features a table with a banana and a red apple placed on it. The banana is positioned on the left side of the table, while the apple is located on the right side. A small, colorful Lego apple is also present on the table, situated between the banana and the apple. The Lego apple appears to be a creative and playful addition to the scene.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "table"
+    ]
+  },
+  {
+    "id": 720,
+    "image": "AMBER_720.jpg",
+    "response": "The image features a beach scene with a large, open umbrella prominently placed on the sand. The umbrella is striped, adding a vibrant touch to the beach setting. The umbrella is positioned in the center of the scene, providing shade and protection from the sun.\n\nIn the background, there are a few boats visible, likely enjoying the ocean waters. The beach appears to be a popular spot for relaxation and leisure activities, as evidenced by the presence of the umbrella and the boats.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "sun",
+      "boat"
+    ]
+  },
+  {
+    "id": 755,
+    "image": "AMBER_755.jpg",
+    "response": "The image features a large, old-fashioned steam locomotive traveling down the tracks. The train is black and silver, with its engine and tender visible in the scene. The train appears to be moving at a fast pace, as it travels through the countryside.\n\nThere are a few people in the scene, likely observing the train as it passes by. One person is standing closer to the left side of the train, while another is positioned further back on the right side. A third person can be seen near the center of the image, possibly observing the train from a distance.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 758,
+    "image": "AMBER_758.jpg",
+    "response": "The image features a small microwave oven sitting on a countertop. The microwave is white and has a digital display, making it a modern appliance. Next to the microwave, there is a small glass jar, possibly a measuring cup, which is placed on the countertop. \n\nIn the background, there is a bookshelf filled with various books. The books are arranged in different orientations, creating a visually interesting scene. The combination of the microwave and the bookshelf creates a cozy and functional kitchen space.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "cup",
+      "bookshelf"
+    ]
+  },
+  {
+    "id": 778,
+    "image": "AMBER_778.jpg",
+    "response": "The image features a young boy standing in a grassy field, holding a baseball bat with both hands. He appears to be enjoying his time outdoors, possibly playing baseball or simply having fun. The boy is the main focus of the scene, with the baseball bat being the most prominent object.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "baseball"
+    ]
+  },
+  {
+    "id": 807,
+    "image": "AMBER_807.jpg",
+    "response": "The image features a colorful umbrella with a rainbow pattern, providing shade and protection from the sun. The umbrella is open and covering a large portion of the scene, with its vibrant colors creating a visually appealing contrast against the background.\n\nIn the background, there is a beach setting, with sand and water visible. A person can be seen standing near the umbrella, possibly enjoying the beach or taking a break from the sun. The scene captures a relaxing and enjoyable atmosphere, with the colorful umbrella as the focal point.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "sun",
+      "person"
+    ]
+  },
+  {
+    "id": 864,
+    "image": "AMBER_864.jpg",
+    "response": "The image features a person paddling a small boat in a large body of blue water, possibly the ocean. The boat is floating on the water, and the person appears to be enjoying the serene environment. The water is clear and blue, creating a picturesque scene. The boat is situated in the middle of the image, with the person sitting in it and navigating through the water.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 936,
+    "image": "AMBER_936.jpg",
+    "response": "The image features a large rocky island in the middle of a vast blue ocean. The island is surrounded by a few smaller rocks, creating a picturesque scene. The ocean appears to be calm, making it an ideal location for various water-based activities.\n\nIn the distance, a boat can be seen floating on the water, adding to the serene atmosphere of the scene. The combination of the island, the ocean, and the boat creates a captivating and peaceful environment.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "rock",
+      "boat"
+    ]
+  },
+  {
+    "id": 959,
+    "image": "AMBER_959.jpg",
+    "response": "The image features a beautiful garden with a large bed of flowers in the center, surrounded by a lush green field. The bed is filled with a variety of flowers, including red tulips and purple flowers. The tulips are spread out throughout the bed, with some closer to the front and others further back. The purple flowers are interspersed among the tulips, creating a vibrant and colorful display. The garden is well-maintained and inviting, making it an ideal spot for relaxation and appreciation of nature.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "bed"
+    ]
+  },
+  {
+    "id": 963,
+    "image": "AMBER_963.jpg",
+    "response": "The image features a wooden cutting board with a variety of fruits and a knife. On the cutting board, there are three sliced lemons, two sliced oranges, and a whole grapefruit. The oranges are placed on the left side of the cutting board, while the lemons are scattered around the center and right side. The grapefruit is positioned towards the right side of the cutting board.\n\nA knife is placed on the left side of the cutting board, ready for use in slicing the fruits. The arrangement of the fruits and the knife creates an inviting scene for preparing a healthy and refreshing fruit salad or snack.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "knife"
+    ]
+  },
+  {
+    "id": 972,
+    "image": "AMBER_972.jpg",
+    "response": "The image features two paintings of a table setting, each depicting a different arrangement of wine bottles, grapes, and other food items. The first painting showcases a table with a bottle of wine, a glass of wine, and a basket of grapes. The second painting also includes a bottle of wine, a glass of wine, and a basket of grapes, but the arrangement is slightly different.\n\nIn addition to the wine and grapes, the table setting also includes a bowl and a cup. The overall scene is visually appealing and inviting, capturing the essence of a sophisticated dining experience.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "basket",
+      "bowl"
+    ]
+  },
+  {
+    "id": 984,
+    "image": "AMBER_984.jpg",
+    "response": "The image features a lush green field with a series of cement steps or stairs leading upwards. The stairs are made of concrete and are positioned in a way that they appear to be floating on the grass. The steps are spaced out and appear to be a part of a larger structure or installation. The grassy field surrounding the stairs provides a natural and serene setting for the scene.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "stair"
+    ]
+  },
+  {
+    "id": 991,
+    "image": "AMBER_991.jpg",
+    "response": "The image depicts a dirt road that appears to be empty and deserted. The road is covered in dirt and has a few patches of grass, giving it a somewhat unkempt appearance. The road is situated between two buildings, with one building on the left side and another on the right side. The overall scene gives off a sense of quietness and emptiness.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "grass",
+      "building"
+    ]
+  },
+  {
+    "id": 992,
+    "image": "AMBER_992.jpg",
+    "response": "The image features a wooden dining table with a light brown finish, placed against a white wall. The table is positioned in the center of the room, and it appears to be the main focal point of the space. The table is surrounded by a few chairs, with one chair on the left side, another on the right side, and one more in the foreground. The chairs are arranged around the table, creating a cozy and inviting atmosphere for dining or gathering.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "chair"
+    ]
+  },
+  {
+    "id": 1,
+    "image": "AMBER_1.jpg",
+    "response": "The image features a group of three people walking together in a lush green field. They are enjoying their time outdoors, possibly on a hike or a leisurely stroll. The individuals are positioned close to each other, with one person slightly ahead of the other two.\n\nIn the background, there is a car parked, indicating that the group may have arrived at the location by car. The scene is serene, with the three people walking in harmony, surrounded by the natural beauty of the field.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "car"
+    ]
+  },
+  {
+    "id": 4,
+    "image": "AMBER_4.jpg",
+    "response": "The image features a woman wearing a white shirt and a white headband, standing in a boat and holding an oar. She appears to be enjoying her time on the water, possibly rowing or paddling. The boat is located in the middle of the scene, and the woman is the main focus of the image.\n\nThe surrounding area is filled with trees, creating a serene and natural atmosphere. The woman's outfit and the presence of the oar suggest that she might be participating in a water-based activity or sport, such as canoeing or kayaking.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 8,
+    "image": "AMBER_8.jpg",
+    "response": "The image features a young child wearing a red hat, standing in a grassy field. The child is holding a toothbrush in their mouth, possibly brushing their teeth while enjoying the outdoors. In the background, a white goose is walking around the field, adding a touch of nature to the scene.\n\nThe field is surrounded by a few trees, providing a pleasant environment for the child to play in. There is also a car visible in the background, suggesting that the child might have been brought to the field by a parent or guardian.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "toothbrush",
+      "car"
+    ]
+  },
+  {
+    "id": 14,
+    "image": "AMBER_14.jpg",
+    "response": "The image features a young boy and a woman standing on a beach near a body of water. The boy is wearing a yellow shirt, and the woman is wearing a gray shirt. They appear to be enjoying their time together, possibly taking a break from playing or engaging in other beach activities.\n\nIn the background, there are several boats visible, some of which are closer to the water's edge, while others are further away. The presence of boats suggests that the beach is a popular spot for water-based activities or leisurely outings.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 24,
+    "image": "AMBER_24.jpg",
+    "response": "The image features a young boy standing in a grassy field, holding a white soccer ball in his hands. He appears to be posing for the camera, possibly for a photo. The boy is wearing a pair of green swim trunks, which adds a playful touch to the scene.\n\nThe field is surrounded by a few trees, creating a pleasant outdoor setting for the boy's soccer activities. The overall atmosphere of the image suggests a fun and active day spent outdoors.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "soccer"
+    ]
+  },
+  {
+    "id": 47,
+    "image": "AMBER_47.jpg",
+    "response": "The image features a person standing on a beach, holding a surfboard. The person is positioned near the center of the scene, and the surfboard is held horizontally in front of them. The beach appears to be a black sandy shore, and the person is the main focus of the scene.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "surfboard"
+    ]
+  },
+  {
+    "id": 63,
+    "image": "AMBER_63.jpg",
+    "response": "The image features a shirtless man in a white bathing suit, performing a handstand on the beach. He is in the process of diving into the water, with his body upside down and his feet in the air. The man appears to be enjoying the water and the beach environment.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "beach"
+    ]
+  },
+  {
+    "id": 67,
+    "image": "AMBER_67.jpg",
+    "response": "The image features a man sitting on a bench, with his legs crossed, and his hands clasped together. He appears to be looking down, possibly deep in thought or contemplating something. The man is wearing a blue jacket, which adds a touch of color to the scene.\n\nThe bench is situated near a wall, which provides a backdrop for the man's sitting position. The overall atmosphere of the scene is calm and introspective, as the man seems to be lost in his thoughts.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "bench"
+    ]
+  },
+  {
+    "id": 84,
+    "image": "AMBER_84.jpg",
+    "response": "The image features a young child, a little boy, standing in a bathtub filled with water. The child is holding a yellow cup, possibly filled with soap or shampoo, and is in the process of washing his hair. The scene appears to be a bath time moment captured in the bathroom.\n\nIn the background, there is a bottle placed on the edge of the tub, possibly containing more soap or shampoo. The child's focus is on washing his hair, and the overall atmosphere of the image is one of a typical bath time routine.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "soap"
+    ]
+  },
+  {
+    "id": 85,
+    "image": "AMBER_85.jpg",
+    "response": "The image features a man sitting in a bathtub filled with bubbles, enjoying a relaxing soak. He is smiling and appears to be in a good mood. The man's feet are visible in the tub, and he seems to be having a pleasant time.\n\nThe bathroom setting includes a sink located in the background, and a toothbrush can be seen placed nearby. The overall atmosphere of the scene is one of relaxation and leisure.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "sink",
+      "toothbrush"
+    ]
+  },
+  {
+    "id": 107,
+    "image": "AMBER_107.jpg",
+    "response": "The image features a beautiful beach scene with a young girl standing on the sand, looking out towards the ocean. She appears to be enjoying her time at the beach. In the background, a dog is lying on the sand, seemingly relaxed and taking in the view. \n\nThere is a surfboard placed nearby, indicating that the girl might be interested in surfing or simply enjoying the beach atmosphere. The scene is further enhanced by the presence of a boat in the water, adding to the overall beach vibe.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "surfboard",
+      "boat"
+    ]
+  },
+  {
+    "id": 120,
+    "image": "AMBER_120.jpg",
+    "response": "The image features a woman sitting at a piano, smiling and holding a microphone in front of her mouth. She appears to be singing or speaking into the microphone, capturing the attention of the audience. The woman is wearing a white shirt, and her smile adds warmth to the scene.\n\nThe piano is placed in the foreground, with the woman positioned in the middle of the frame. The setting seems to be a stage or a performance area, where the woman is the main focus of the scene.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "piano"
+    ]
+  },
+  {
+    "id": 166,
+    "image": "AMBER_166.jpg",
+    "response": "The image features a white and black cat standing on a lush green field. The cat appears to be looking at something, possibly a small insect or a bird, as it is focused on the ground. The cat's position is in the center of the scene, with its body facing the camera. The grassy field provides a natural and serene backdrop for the cat's presence.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "insect",
+      "bird"
+    ]
+  },
+  {
+    "id": 191,
+    "image": "AMBER_191.jpg",
+    "response": "The image features a large airplane flying high in the sky, with its wings visible as it soars through the air. The airplane is positioned towards the center of the scene, and its presence is emphasized by its size relative to the surrounding environment.\n\nThe sky is a deep shade of blue, with no clouds visible. The airplane's flight path is unobstructed, allowing it to glide smoothly through the air. The overall atmosphere of the image is serene and captures the beauty of the airplane in motion.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "cloud",
+      "path"
+    ]
+  },
+  {
+    "id": 206,
+    "image": "AMBER_206.jpg",
+    "response": "The image captures a woman in an orange dress playing tennis on a court. She is in the middle of a swing, holding a tennis racket and preparing to hit the ball. The tennis ball is visible in the air, close to the racket. The woman's athletic stance and focus on the game create an exciting and dynamic scene.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "ball"
+    ]
+  },
+  {
+    "id": 216,
+    "image": "AMBER_216.jpg",
+    "response": "The image features a black laptop computer sitting on a wooden desk. The laptop is open and displaying a presentation, possibly a PowerPoint slide, with a mouse placed nearby. The desk also has a cup and a cell phone on it, adding to the organized and functional workspace.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "mouse",
+      "phone"
+    ]
+  },
+  {
+    "id": 261,
+    "image": "AMBER_261.jpg",
+    "response": "The image features a white cat sitting on top of a television set, which is placed on a table. The cat appears to be staring at the television screen, possibly watching a program or movie. The television is positioned on the left side of the scene, with the cat occupying the right side.\n\nThe room has a cozy atmosphere, with a couch located in the background. A remote control can be seen placed on the table, close to the cat and the television. The scene captures a moment of relaxation and curiosity for the cat as it observes the television.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "table"
+    ]
+  },
+  {
+    "id": 282,
+    "image": "AMBER_282.jpg",
+    "response": "The image features a wooden dining table with a cell phone and a tablet computer placed on it. The cell phone is located on the left side of the table, while the tablet is positioned on the right side. The tablet is open and displaying a book, likely a novel, with the title \"The Girl with the Dragon Tattoo\" visible on the screen. The table appears to be set for a meal, with a cup and a spoon placed near the center of the table.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "computer",
+      "cup"
+    ]
+  },
+  {
+    "id": 295,
+    "image": "AMBER_295.jpg",
+    "response": "The image features a dining table with a white plate holding a banana and a cup of chocolate milk. The banana is placed on the left side of the plate, while the cup of chocolate milk is situated towards the center. The scene appears to be set in a kitchen or dining area.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "milk"
+    ]
+  },
+  {
+    "id": 296,
+    "image": "AMBER_296.jpg",
+    "response": "The image features a cow standing on a grassy field near a body of water, which appears to be a lake. The cow is positioned towards the center of the scene, and it seems to be looking at the camera. The grassy field extends towards the water, creating a serene and picturesque setting.\n\nIn addition to the cow, there are several other people scattered throughout the scene, likely enjoying the peaceful surroundings or engaging in outdoor activities. The presence of the people adds a sense of life and activity to the otherwise calm and tranquil environment.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people"
+    ]
+  },
+  {
+    "id": 300,
+    "image": "AMBER_300.jpg",
+    "response": "The image features two motorcycles parked side by side on a paved road. Both motorcycles are silver and black in color, and they are positioned close to each other. The motorcycles are parked in a way that they are facing opposite directions, with one motorcycle on the left side of the road and the other on the right side.\n\nThe scene also includes a car parked further back on the left side of the road, and a person standing near the middle of the scene, possibly admiring the motorcycles or walking by.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "car",
+      "person"
+    ]
+  },
+  {
+    "id": 317,
+    "image": "AMBER_317.jpg",
+    "response": "The image features a large red double-decker bus driving down a street. The bus is positioned in the center of the scene, occupying a significant portion of the image. The street appears to be empty, with no other vehicles or pedestrians visible.\n\nThere are two people in the scene, one located near the left edge of the image and the other closer to the right side. Additionally, there are two benches in the scene, one near the left edge and the other towards the right side of the image.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people",
+      "bench"
+    ]
+  },
+  {
+    "id": 319,
+    "image": "AMBER_319.jpg",
+    "response": "The image features a red and white double-decker bus driving down a road, surrounded by a beautiful landscape. The bus is positioned in the middle of the scene, with a large body of water visible in the background. The water appears to be a lake, providing a serene and picturesque backdrop for the bus's journey.\n\nThere are a few people in the scene, with one person standing closer to the bus and two others further away. The presence of these individuals adds a sense of life and activity to the otherwise peaceful environment.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 320,
+    "image": "AMBER_320.jpg",
+    "response": "The image features a dog and a cat standing on a cobblestone surface, possibly a street or a sidewalk. The dog is positioned closer to the left side of the scene, while the cat is on the right side. They seem to be looking at each other, possibly engaging in a playful interaction.\n\nThe dog is wearing a red collar, which is visible as it stands next to the cat. The scene captures the curiosity and interaction between the two animals as they share the same space.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "street",
+      "collar"
+    ]
+  },
+  {
+    "id": 324,
+    "image": "AMBER_324.jpg",
+    "response": "The image features a man standing in a grassy field, wearing a white shirt and tie, and holding a frisbee. He appears to be in the middle of a playful activity, possibly preparing to throw the frisbee. The man is the main focus of the scene, with the frisbee held in his hand.\n\nThe field is surrounded by a few trees, providing a natural and open environment for the man's frisbee game. The overall atmosphere of the image suggests a fun and active outdoor experience.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "frisbee"
+    ]
+  },
+  {
+    "id": 329,
+    "image": "AMBER_329.jpg",
+    "response": "The image features a small dog lying on a carpeted floor, playing with a carrot. The dog is positioned in the center of the scene, with the carrot close to its mouth. The dog appears to be enjoying the game and is likely chewing on the carrot.\n\nThe room has a couch in the background, and a chair is also visible in the scene. The dog's playful demeanor and the presence of the carrot create a lively and fun atmosphere in the image.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "couch",
+      "chair"
+    ]
+  },
+  {
+    "id": 332,
+    "image": "AMBER_332.jpg",
+    "response": "The image features a beautiful beach scene with a large yellow and white striped umbrella prominently placed on the sand. The umbrella is open, providing shade for the beachgoers. Two white lounge chairs are situated underneath the umbrella, inviting people to relax and enjoy the beach atmosphere. The chairs are positioned close to each other, creating a cozy and comfortable spot for people to unwind.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people"
+    ]
+  },
+  {
+    "id": 336,
+    "image": "AMBER_336.jpg",
+    "response": "The image features a man and a woman riding bicycles down a path in a park. They are both wearing backpacks, with one of the backpacks being larger than the other. The man is riding a bicycle on the left side of the woman, who is also riding a bicycle. The couple appears to be enjoying their time together in the park, possibly exploring the area or engaging in a leisurely activity.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "backpack"
+    ]
+  },
+  {
+    "id": 338,
+    "image": "AMBER_338.jpg",
+    "response": "The image features a small bathroom with a white toilet positioned in the middle of the room. The toilet is a squat-style toilet, which is a common design in many Asian countries. Above the toilet, there is a hand-held bidet with a blue lid, providing a hygienic and convenient option for users. \n\nThe bathroom also has a sink located towards the left side of the room, and a bottle can be seen placed on the right side. The overall design of the bathroom is minimalistic and functional, with the primary focus on the toilet and bidet.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "sink",
+      "bottle"
+    ]
+  },
+  {
+    "id": 339,
+    "image": "AMBER_339.jpg",
+    "response": "The image features a man wearing a helmet and riding a bicycle on a dirt road. He is positioned in the center of the scene, with a mountain visible in the background. The man is carrying a backpack, which is placed on his back, and he is also wearing a water bottle.\n\nThere are two other people in the scene, one standing to the left of the main cyclist and another person further to the right. The presence of the mountain and the dirt road suggest that the cyclist is likely on a mountain biking trail.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "water",
+      "bottle"
+    ]
+  },
+  {
+    "id": 376,
+    "image": "AMBER_376.jpg",
+    "response": "The image features a beautiful beach scene with a white sandy shore and a blue ocean in the background. There are several palm trees scattered across the beach, providing a relaxing atmosphere. In the foreground, a few umbrellas are set up, providing shade for beachgoers. \n\nA few chairs can be seen placed around the beach, with one near the center and another closer to the right side. Additionally, there is a dining table located near the center of the scene, offering a place for people to enjoy their meals while taking in the picturesque view.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "table",
+      "people"
+    ]
+  },
+  {
+    "id": 385,
+    "image": "AMBER_385.jpg",
+    "response": "The image features a yellow fire hydrant sitting in the middle of a grassy field. The hydrant is surrounded by a lush green field, giving it a sense of being in a rural area. The scene is set against a backdrop of a house, which can be seen in the background.\n\nThere are two chairs placed near the house, one closer to the left side and the other further to the right. Additionally, a person is visible in the scene, standing near the middle of the image, possibly enjoying the outdoor setting.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "chair",
+      "person"
+    ]
+  },
+  {
+    "id": 392,
+    "image": "AMBER_392.jpg",
+    "response": "The image features a large red bus driving down a road, surrounded by a desert-like environment. The bus appears to be a tour bus, possibly transporting people to a nearby destination. The bus is quite long, occupying a significant portion of the image, and it is the main focus of the scene.\n\nThere are no other vehicles or people visible in the image, giving the impression of a quiet and peaceful atmosphere. The bus is driving on a road that appears to be relatively empty, with no other cars or obstacles in sight.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people"
+    ]
+  },
+  {
+    "id": 394,
+    "image": "AMBER_394.jpg",
+    "response": "The image features a man sitting on a wooden bench in a park. He is wearing a coat and appears to be looking off into the distance. The man has a backpack placed on the bench next to him, and he is holding a cell phone in his hand. The scene is captured in black and white, giving it a classic and timeless feel.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "backpack",
+      "phone"
+    ]
+  },
+  {
+    "id": 410,
+    "image": "AMBER_410.jpg",
+    "response": "The image features a man sitting on a chair, holding a glass of beer in his hand. He appears to be wearing a tie, which suggests a more formal or semi-formal setting. The man is positioned in the center of the scene, and the chair he is sitting on is the main focus of the image.\n\nThere is another chair located on the left side of the image, but it is not the main focus. The man's posture and the presence of the beer suggest a relaxed and casual atmosphere.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "beer"
+    ]
+  },
+  {
+    "id": 418,
+    "image": "AMBER_418.jpg",
+    "response": "The image features a man wearing a tie and sunglasses, standing in front of a mirror. He is taking a selfie with a camera, capturing his outfit and appearance. The man is also holding a cell phone in his hand, which he is using to take the picture.\n\nIn the background, there is a chair visible, adding to the overall setting of the scene. The man's tie is noticeable, and his sunglasses are placed on top of his head, giving the impression of a casual yet stylish look.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "phone",
+      "chair"
+    ]
+  },
+  {
+    "id": 432,
+    "image": "AMBER_432.jpg",
+    "response": "The image features a colorful, vintage Volkswagen van parked in front of a building. The van is painted with a flower design, making it stand out. The van is parked near a set of stairs, possibly leading to the building. \n\nThere are two people in the scene, one standing closer to the left side of the van and the other further to the right. Additionally, there is a handbag placed near the person on the right side of the van.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 436,
+    "image": "AMBER_436.jpg",
+    "response": "The image features a young woman sitting on the floor next to a toilet. She is holding her head in her hands, possibly feeling unwell or experiencing discomfort. The toilet is situated in the middle of the scene, and the woman is positioned close to it.\n\nThe room appears to be a bathroom, with a sink visible in the background. The woman is wearing a black shirt, and there is a cup placed on the floor near the toilet.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "sink",
+      "cup"
+    ]
+  },
+  {
+    "id": 443,
+    "image": "AMBER_443.jpg",
+    "response": "The image features a black laptop computer sitting on a wooden desk. The laptop is open and turned on, displaying a colorful screen with a rainbow pattern. The laptop's keyboard is visible, with the space bar located towards the bottom of the image.\n\nIn addition to the laptop, there is a computer monitor situated on the right side of the desk. The monitor is turned off, with its screen displaying a black background. The desk appears to be a workspace, with the laptop and monitor serving as essential tools for work or leisure activities.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "rainbow",
+      "bar"
+    ]
+  },
+  {
+    "id": 456,
+    "image": "AMBER_456.jpg",
+    "response": "The image features a bicycle parked on a sidewalk next to a yellow building. The bicycle is leaning against a pole, and it appears to be an old-fashioned model. The scene is set in a city, with the bicycle being the main focus of the image.\n\nThere are two people in the scene, one standing closer to the left side of the image and the other person located near the center. A fire hydrant can be seen on the left side of the image, adding to the urban atmosphere.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 462,
+    "image": "AMBER_462.jpg",
+    "response": "The image features a small kitchen with a white refrigerator and a microwave oven placed above it. The refrigerator is positioned on the left side of the kitchen, while the microwave is located above it, slightly to the right. The microwave appears to be a white and silver model.\n\nThe kitchen is equipped with a sink, which is situated on the right side of the refrigerator. The sink is accompanied by a countertop, providing a functional space for food preparation and storage.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "sink"
+    ]
+  },
+  {
+    "id": 465,
+    "image": "AMBER_465.jpg",
+    "response": "The image features a stop sign in the middle of a grassy field, surrounded by a lush green landscape. The stop sign is positioned in the center of the scene, with a mountain range visible in the background. The field appears to be a part of a park or a recreational area, as there are several cars parked in the vicinity. The cars are scattered around the field, with some closer to the stop sign and others further away. The overall atmosphere of the scene is serene and picturesque.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "car"
+    ]
+  },
+  {
+    "id": 484,
+    "image": "AMBER_484.jpg",
+    "response": "The image features a scenic road with two vintage Volkswagen buses driving side by side. The buses are parked next to each other on the side of the road, and they appear to be old-fashioned in design. The road is surrounded by a beautiful landscape, with mountains visible in the background.\n\nThere are two people standing near the buses, possibly admiring the view or preparing to board the vehicles. The overall atmosphere of the scene is nostalgic and captures the essence of a classic road trip.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people",
+      "board"
+    ]
+  },
+  {
+    "id": 491,
+    "image": "AMBER_491.jpg",
+    "response": "The image features a woman sitting on a red couch, wearing a suit and tie. She is positioned in the center of the couch, with her legs crossed. A laptop is placed on the couch to her left, and a book is situated nearby. The scene appears to be a casual and comfortable setting, with the woman seemingly relaxing on the couch.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "tie",
+      "book"
+    ]
+  },
+  {
+    "id": 504,
+    "image": "AMBER_504.jpg",
+    "response": "The image features a man and a child standing on a grassy field, playing with a soccer ball. The man is positioned on the left side of the field, while the child is on the right side. The soccer ball is located in the middle of the field, between the two individuals.\n\nThe scene is set in a park, with a pond visible in the background. The park appears to be a popular spot for outdoor activities, as there are several benches scattered throughout the area. Some benches are located near the pond, while others are positioned further away from the water.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "bench"
+    ]
+  },
+  {
+    "id": 509,
+    "image": "AMBER_509.jpg",
+    "response": "The image features a giraffe standing in a grassy field under a tree, with a beautiful blue sky above. The giraffe appears to be looking at the camera, capturing the viewer's attention. The field is vast, providing a sense of openness and space for the giraffe to roam.\n\nIn the background, there is a bird flying, adding to the natural atmosphere of the scene. The combination of the giraffe, the tree, the grass, and the bird creates a serene and picturesque image.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "bird"
+    ]
+  },
+  {
+    "id": 521,
+    "image": "AMBER_521.jpg",
+    "response": "The image features a beautiful scene of a grassy hillside with a clock tower in the background. The clock tower is adorned with yellow flowers, adding a vibrant touch to the scene. The flowers are scattered around the clock tower, creating a picturesque view.\n\nIn addition to the clock tower, there is a bench situated on the hillside, providing a place for visitors to sit and enjoy the scenery. The combination of the clock tower, flowers, and the bench creates a serene and inviting atmosphere for those who visit the area.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "bench"
+    ]
+  },
+  {
+    "id": 522,
+    "image": "AMBER_522.jpg",
+    "response": "The image features a brown and white cat sitting on top of a laptop computer, likely curious about the device. The cat is positioned in the center of the laptop, with its body occupying a significant portion of the screen. The laptop is placed on a desk, and a mouse can be seen nearby.\n\nIn the background, there is a person partially visible, possibly the owner of the laptop or someone who is using the computer. The scene captures the cat's curiosity and playfulness as it interacts with the laptop.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "mouse",
+      "person"
+    ]
+  },
+  {
+    "id": 538,
+    "image": "AMBER_538.jpg",
+    "response": "The image features a white and black cat sitting next to a laptop computer. The cat is positioned on the left side of the laptop, with its body partially covering the screen. The laptop is open and turned on, displaying a spreadsheet on the screen. \n\nIn addition to the laptop, there is a mouse located on the right side of the laptop, and a cell phone can be seen on the left side of the scene. The overall scene appears to be a cozy and relaxed environment, with the cat enjoying the company of the laptop.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "mouse",
+      "phone"
+    ]
+  },
+  {
+    "id": 548,
+    "image": "AMBER_548.jpg",
+    "response": "The image features a black stuffed animal, possibly a monkey or a cat, sitting on a table. The stuffed animal is positioned in a way that it appears to be eating a banana, with the banana placed in front of it. The banana is partially peeled, and it seems to be the main focus of the scene. The stuffed animal appears to be the center of attention, creating a playful and whimsical atmosphere.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "cat",
+      "table"
+    ]
+  },
+  {
+    "id": 555,
+    "image": "AMBER_555.jpg",
+    "response": "The image features a white bus driving down a road, surrounded by a forest. The bus is the main focus of the scene, occupying a significant portion of the image. The road appears to be a two-way street, with the bus driving in the opposite direction of the viewer.\n\nThere are several people visible in the scene, with one person standing near the bus and two others further away. The presence of these individuals suggests that they might be passengers or pedestrians on the road.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 558,
+    "image": "AMBER_558.jpg",
+    "response": "The image features a large red truck driving across a dirt field, possibly in a desert setting. The truck is the main focus of the scene, with its size and color standing out against the surrounding environment. The truck appears to be a flatbed truck, possibly used for transporting goods or equipment.\n\nIn addition to the truck, there is a person visible in the background, standing near the right side of the image. The person's presence suggests that they might be involved in the truck's operation or simply passing by the area.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "person"
+    ]
+  },
+  {
+    "id": 574,
+    "image": "AMBER_574.jpg",
+    "response": "The image features a man dressed in blue, standing on a tennis court and holding a tennis racket. He is in the middle of a swing, preparing to hit the tennis ball. The man appears to be focused and determined, as he is fully engaged in the game.\n\nThe tennis ball is visible in the air, close to the man's racket, while the rest of the court is empty, with no other players or objects visible in the scene. The man's position and the tennis racket suggest that he is actively participating in a tennis match.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "ball"
+    ]
+  },
+  {
+    "id": 579,
+    "image": "AMBER_579.jpg",
+    "response": "The image features a close-up of a plate with a variety of fruits, including an apple, a banana, and a peach. The apple is placed on the left side of the plate, while the banana is situated in the middle, and the peach is on the right side. The fruits are arranged in a visually appealing manner, with the apple taking up a larger portion of the plate. The close-up view highlights the vibrant colors and textures of the fruits, making it an attractive and appetizing scene.",
+    "hallucination_count": 2,
+    "hallucinated_nouns": [
+      "peach"
+    ]
+  }
+]
