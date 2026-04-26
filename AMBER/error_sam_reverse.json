@@ -1,0 +1,307 @@
+[
+  {
+    "id": 932,
+    "image": "AMBER_932.jpg",
+    "response": "The image features a laptop computer placed on a bed, with a cell phone and a watch nearby. The laptop is positioned on the left side of the bed, while the cell phone is located on the right side, and the watch is placed in the middle of the bed. \n\nIn addition to these items, there is a book situated on the left side of the bed, and a notebook is placed on the right side. A remote control can also be seen resting on the bed, closer to the right edge. The overall scene suggests a comfortable and relaxed environment for work or leisure activities.",
+    "hallucination_count": 8,
+    "hallucinated_nouns": [
+      "bed",
+      "phone",
+      "book"
+    ]
+  },
+  {
+    "id": 142,
+    "image": "AMBER_142.jpg",
+    "response": "The image features a woman standing in a room, painting a green wall with a roller brush. She is focused on her task, and the room appears to be a workspace. The woman is wearing a white shirt, and her glasses are visible as she works on the wall.\n\nThere are several other objects in the room, including a cup placed near the top left corner, a bottle located towards the right side, and a book situated on the floor. Additionally, a chair can be seen in the background, and a clock is mounted on the wall.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "cup",
+      "bottle",
+      "book",
+      "floor",
+      "chair",
+      "clock"
+    ]
+  },
+  {
+    "id": 685,
+    "image": "AMBER_685.jpg",
+    "response": "The image features a table with a variety of fruits and vegetables on it. There are two bananas, one of which is placed near the center of the table, and the other is located towards the right side. A bottle is also present on the table, positioned towards the left side.\n\nIn addition to the bananas, there are two apples on the table. One apple is located on the left side, while the other is positioned more towards the center. The fruits and vegetables create a colorful and healthy display on the table.",
+    "hallucination_count": 6,
+    "hallucinated_nouns": [
+      "table",
+      "bottle"
+    ]
+  },
+  {
+    "id": 908,
+    "image": "AMBER_908.jpg",
+    "response": "The image features a wooden table with a cell phone and a laptop placed on it. The cell phone is positioned towards the left side of the table, while the laptop is situated more towards the center. Both devices are connected to a wireless mouse, which is located on the right side of the table. \n\nIn addition to the main devices, there is a remote control placed near the cell phone, and a keyboard can be seen on the right side of the table. A person is also visible in the background, partially obscured by the devices on the table.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "laptop",
+      "mouse",
+      "keyboard",
+      "person"
+    ]
+  },
+  {
+    "id": 921,
+    "image": "AMBER_921.jpg",
+    "response": "The image features a large white bridge spanning across a body of water, possibly a river or a lake. The bridge is supported by multiple pillars, providing a sturdy structure for vehicles and pedestrians to cross. The bridge is situated near a beach, with a few people enjoying the view of the water and the bridge.\n\nIn the scene, there are several boats of varying sizes scattered throughout the water, some closer to the bridge and others further away. The boats seem to be enjoying the calm waters, adding to the serene atmosphere of the location.",
+    "hallucination_count": 5,
+    "hallucinated_nouns": [
+      "vehicle",
+      "beach",
+      "people",
+      "boat"
+    ]
+  },
+  {
+    "id": 85,
+    "image": "AMBER_85.jpg",
+    "response": "The image features a man sitting in a bathtub filled with water, enjoying a relaxing bath. He is smiling and appears to be having a good time. The man's feet are visible, and he is sitting in a tub with a shower head.\n\nThe bathroom setting includes a sink and a toilet, which can be seen in the background. The sink is located to the left of the man, while the toilet is situated to the right. The overall atmosphere of the scene is one of relaxation and leisure.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "sink",
+      "toilet"
+    ]
+  },
+  {
+    "id": 98,
+    "image": "AMBER_98.jpg",
+    "response": "The image features a man standing on a sandy beach, holding a frisbee in his hand. He appears to be in the process of throwing the frisbee, possibly enjoying a game of beach frisbee. The man is wearing shorts, which is appropriate for the beach setting. The frisbee is positioned slightly above his head, as he prepares to release it into the air.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "frisbee"
+    ]
+  },
+  {
+    "id": 130,
+    "image": "AMBER_130.jpg",
+    "response": "The image features a young girl wearing a bathing suit, lying on her back on a beach. She is enjoying her time in the water, possibly on a water slide. The girl is surrounded by a few other people, but she is the main focus of the scene.\n\nIn the background, there is a boat visible, adding to the beach atmosphere. The girl's position in the water suggests that she is having a fun and relaxing time at the beach.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "beach",
+      "boat"
+    ]
+  },
+  {
+    "id": 256,
+    "image": "AMBER_256.jpg",
+    "response": "The image features a small, pink toy placed on the floor in front of a wooden wall. The toy is positioned in the center of the scene, and it appears to be a teddy bear. A chair is situated in the background, close to the wall, and it is partially visible.\n\nIn addition to the toy and the chair, there is a fire extinguisher mounted on the wall, providing a sense of safety in the room. The overall setting seems to be a cozy and inviting space.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "toy",
+      "bear"
+    ]
+  },
+  {
+    "id": 402,
+    "image": "AMBER_402.jpg",
+    "response": "The image features a cat standing on a toilet seat, looking down at the water in the toilet bowl. The cat appears to be curious about the water, possibly intrigued by its reflection or the sound of the water. The toilet is located in a bathroom, and the cat seems to be exploring the area.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "water",
+      "sound"
+    ]
+  },
+  {
+    "id": 443,
+    "image": "AMBER_443.jpg",
+    "response": "The image features a black laptop computer sitting on a wooden desk. The laptop's screen is turned on, displaying a colorful screen with a rainbow pattern. The laptop is open and ready for use, with its keyboard and mouse placed in front of it.\n\nIn addition to the laptop, there is a TV mounted on the wall above the desk. The TV appears to be turned off, as it is not displaying any content. The overall scene suggests a workspace or a home office setup.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "rainbow",
+      "mouse",
+      "tv"
+    ]
+  },
+  {
+    "id": 453,
+    "image": "AMBER_453.jpg",
+    "response": "The image features a stop sign on a pole in front of a house, with a four-way sign below it. The stop sign is positioned on the left side of the scene, while the four-way sign is on the right side. The house is located in the background, with a car parked in front of it.\n\nThere are also two people visible in the scene, one standing closer to the left side of the image and the other person near the center. The presence of the people suggests that they might be residents or visitors of the house.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "car",
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 474,
+    "image": "AMBER_474.jpg",
+    "response": "The image features a park setting with a wooden bench situated on a grassy field. The bench is positioned near a tree, providing shade and a pleasant atmosphere. The park is located next to a lake, creating a serene and picturesque environment.\n\nThere are a few people in the scene, with one person standing closer to the left side of the bench, another person near the center, and a third person on the right side of the bench. The presence of these individuals suggests that the park is a popular spot for relaxation and leisure.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 482,
+    "image": "AMBER_482.jpg",
+    "response": "The image features a dining table with two bowls filled with food. The bowls are placed on the table, and one of them is filled with rice, while the other contains broccoli. The broccoli is scattered throughout the bowl, with some pieces placed closer to the center and others towards the edges. The bowls are placed on the table, and the food appears to be ready to be eaten.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "bowl"
+    ]
+  },
+  {
+    "id": 559,
+    "image": "AMBER_559.jpg",
+    "response": "The image features a bathroom with a white toilet positioned under a shower curtain. The shower curtain has a black and white polka dot pattern, adding a touch of style to the bathroom. The toilet is located next to a sink, which is situated on the right side of the bathroom.\n\nThere are several towels placed on the sink, with two of them being blue and one being pink. Additionally, there are two bottles on the sink, possibly containing toiletries or cleaning supplies. The bathroom appears to be well-organized and ready for use.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "sink",
+      "bottle"
+    ]
+  },
+  {
+    "id": 580,
+    "image": "AMBER_580.jpg",
+    "response": "The image features a piece of cake on a white plate, with a fork placed on top of it. The cake is cut into a square shape and has a heart-shaped piece missing, revealing the cake's filling. The fork is positioned near the center of the cake, ready to be used to enjoy the dessert.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "cake"
+    ]
+  },
+  {
+    "id": 599,
+    "image": "AMBER_599.jpg",
+    "response": "The image features a bathroom with a white bathtub placed next to a green tiled wall. The bathtub is empty and ready for use. Above the bathtub, there is a shelf with a towel rack, providing a convenient spot for hanging towels. The bathroom also has a toilet situated towards the right side of the room. The overall appearance of the bathroom is clean and well-maintained.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "shelf",
+      "towel",
+      "rack"
+    ]
+  },
+  {
+    "id": 844,
+    "image": "AMBER_844.jpg",
+    "response": "The image features a large, open sandy field with a cloudy sky overhead. The sand appears to be a mix of tan and brown, giving the field a unique and natural appearance. The sky is filled with clouds, creating a dramatic backdrop for the expansive landscape.\n\nThere are a few small objects scattered throughout the scene, including a bird flying in the sky and a person standing in the distance. Additionally, there is a dog located near the center of the image, possibly accompanying the person.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "bird",
+      "person",
+      "dog"
+    ]
+  },
+  {
+    "id": 861,
+    "image": "AMBER_861.jpg",
+    "response": "The image features a beautiful blue ocean with several boats floating on the water. There are two boats in the foreground, one closer to the left side of the scene and the other towards the center. Another boat can be seen further back, closer to the right side of the image. \n\nIn addition to the boats, there are three people visible in the scene. One person is located near the left side of the image, another is in the middle, and the third person is closer to the right side. The combination of the boats, people, and the ocean creates a serene and picturesque scene.",
+    "hallucination_count": 4,
+    "hallucinated_nouns": [
+      "people",
+      "person"
+    ]
+  },
+  {
+    "id": 4,
+    "image": "AMBER_4.jpg",
+    "response": "The image features a woman in a white shirt, wearing a ponytail, and holding an oar in her hand. She is standing in a boat on a river, enjoying her time on the water. The boat is surrounded by a lush green forest, creating a serene and picturesque scene. The woman appears to be the main focus of the image, with the boat and the surrounding nature providing a peaceful backdrop.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 19,
+    "image": "AMBER_19.jpg",
+    "response": "The image features two people walking on a path near a body of water, likely a beach or a lake. They are both holding ski poles, which suggests they might be enjoying a skiing or snowboarding activity nearby. The scene appears to be set during sunset, creating a serene and picturesque atmosphere.\n\nIn addition to the two main figures, there are two more people in the background, possibly enjoying the view or engaging in their own activities. The presence of the water and the sunset creates a tranquil and inviting environment for the people in the scene.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "path",
+      "beach",
+      "ski"
+    ]
+  },
+  {
+    "id": 27,
+    "image": "AMBER_27.jpg",
+    "response": "The image features a person riding a motorcycle down a street. The motorcycle is positioned towards the center of the scene, with the rider skillfully maneuvering it. The rider is wearing a helmet, ensuring safety while enjoying the ride.\n\nIn the background, there are several cars parked or driving along the street, with one car on the left side, another on the right side, and two more cars further down the road. The presence of multiple vehicles suggests that this is a busy street.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "car"
+    ]
+  },
+  {
+    "id": 51,
+    "image": "AMBER_51.jpg",
+    "response": "The image captures a beautiful beach scene with two children walking into the ocean. They are enjoying their time together, with one child leading the way and the other following closely behind. The children are wearing wet suits, which suggests that the water temperature might be a bit cold.\n\nIn the background, there are several other people scattered across the beach, some closer to the water and others further away. The atmosphere is lively and full of fun, as everyone seems to be enjoying their day at the beach.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "child"
+    ]
+  },
+  {
+    "id": 67,
+    "image": "AMBER_67.jpg",
+    "response": "The image features a man sitting on a bench, with his back turned to the viewer. He is wearing a blue jacket and appears to be looking downward. The bench is located near a staircase, and there is a handbag placed on the ground next to the man. The scene is set in a dark environment, with the man being the main focus of the image.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "bench",
+      "staircase"
+    ]
+  },
+  {
+    "id": 75,
+    "image": "AMBER_75.jpg",
+    "response": "The image features two dogs standing on a sidewalk, one on the left and the other on the right. They are positioned next to a red fire hydrant, which is located in the center of the scene. The dogs appear to be looking at something, possibly the fire hydrant or something else in the vicinity.\n\nThe sidewalk is situated near a street, as evidenced by the presence of a car in the background. The car is parked on the right side of the scene, and it appears to be the only vehicle visible in the image.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "car",
+      "vehicle"
+    ]
+  },
+  {
+    "id": 83,
+    "image": "AMBER_83.jpg",
+    "response": "The image features a beach scene with a young girl in the center, jumping high into the air. She appears to be enjoying her time at the beach, possibly playing with friends. Another person is visible in the background, standing on the beach, and a third person is located further back, closer to the water.\n\nThere are two sports balls on the beach, one near the center of the scene and the other closer to the right side. The beach is also adorned with a few boats, with one boat located near the left side of the scene and another boat further back, closer to the right side.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "boat"
+    ]
+  },
+  {
+    "id": 86,
+    "image": "AMBER_86.jpg",
+    "response": "The image features a small brown dog with a frisbee in its mouth, running through a grassy field. The dog appears to be enjoying the outdoor activity and is in the middle of the field. The frisbee is located towards the right side of the dog, with its mouth open, indicating that it is actively carrying the frisbee. The scene captures the dog's playful and energetic nature.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "frisbee"
+    ]
+  },
+  {
+    "id": 163,
+    "image": "AMBER_163.jpg",
+    "response": "The image features a woman sitting at a dining table with a plate of fruit in front of her. She is holding a lime in her hand, and there are several other fruits on the table, including apples and broccoli. The woman appears to be enjoying her meal and the variety of healthy food options.\n\nThe table is surrounded by chairs, with one chair positioned on the left side of the table and another on the right. The scene is set against a blue wall, creating a calm and relaxing atmosphere.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "apple",
+      "chair"
+    ]
+  },
+  {
+    "id": 172,
+    "image": "AMBER_172.jpg",
+    "response": "The image depicts a man and a woman playing a game of frisbee in a grassy field. The man is holding a frisbee in his hand, preparing to throw it. The woman is standing nearby, ready to catch the frisbee or participate in the game. The scene captures the essence of outdoor recreation and leisure time spent together.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "frisbee"
+    ]
+  },
+  {
+    "id": 216,
+    "image": "AMBER_216.jpg",
+    "response": "The image features a black laptop computer sitting on a wooden desk. The laptop is open and turned on, displaying a slide show on its screen. The desk also has a mouse placed near the laptop, and a cup is located on the right side of the desk.\n\nIn addition to the laptop and mouse, there are two books on the desk, one on the left side and the other on the right side. The scene appears to be a workspace or study area, with the laptop being the primary focus.",
+    "hallucination_count": 3,
+    "hallucinated_nouns": [
+      "mouse",
+      "book"
+    ]
+  }
+]
