@@ -7,6 +7,7 @@ huggingface-hub==0.17.3
 safetensors==0.7.0
 sentencepiece==0.1.99
 bitsandbytes==0.49.2
+protobuf==3.20.3
 
 # Vision / Multimodal
 timm==0.4.12

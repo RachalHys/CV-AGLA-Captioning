@@ -102,7 +102,7 @@ python eval/run_llava.py \
     --question-file AMBER/amber_generative.jsonl \
     --answers-file AMBER/amber_llava_sam_output.jsonl \
     --precision fp16 \
-    --num-gpus 2 \
+    --num-gpus 1 \
     --use_agla \
     --max-new-tokens 180 \
     --alpha 2.0 \

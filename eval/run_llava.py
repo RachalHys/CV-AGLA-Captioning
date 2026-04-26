@@ -8,12 +8,13 @@ EVAL_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(EVAL_DIR)
 
 # 2. Setup Cache
-os.environ.setdefault("HF_HOME",    os.path.join(PROJECT_ROOT, ".cache", "huggingface"))
-os.environ.setdefault("TORCH_HOME", os.path.join(PROJECT_ROOT, ".cache", "torch"))
+CACHE_DIR = os.path.join(PROJECT_ROOT, ".cache")
+os.environ["HF_HOME"] = os.path.join(CACHE_DIR, "huggingface")
+os.environ["TORCH_HOME"] = os.path.join(CACHE_DIR, "torch")
 
 # 3. Setup sys.path
 for path in [PROJECT_ROOT, EVAL_DIR]:
-    if path in sys.path:
+    while path in sys.path:
         sys.path.remove(path)
     sys.path.insert(0, path)
 from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
