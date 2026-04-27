@@ -96,11 +96,30 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptr
 
 ### Step 2: Run Inference
 *(Assuming your AMBER images are located in `AMBER/image`)*
+*eval_tas for our method; eval_agla for agla baseline.
+*EVAL_TAS:
 ```bash
-python eval/run_llava.py \
-    --image-folder AMBER/image \
-    --question-file AMBER/amber_generative.jsonl \
-    --answers-file AMBER/amber_llava_sam_output.jsonl \
+python eval_tas/run_llava.py \
+    --image-folder images/ \
+    --question-file query.jsonl \
+    --answers-file ./answer.jsonl \
+    --precision fp16 \
+    --num-gpus 1 \
+    --use_agla \
+    --max-new-tokens 180 \
+    --alpha 2.0 \
+    --beta 0.5 \
+    --yolo-conf 0.2 \
+    --expansion-ratio 0.0 \
+    2>&1 | tee run_log_llava.txt
+```
+
+*EVAL_AGLA:
+```bash
+python eval_agla/run_llava.py \
+    --image-folder images/ \
+    --question-file query.jsonl \
+    --answers-file ./answer.jsonl \
     --precision fp16 \
     --num-gpus 1 \
     --use_agla \
