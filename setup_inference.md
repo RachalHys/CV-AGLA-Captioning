@@ -15,7 +15,7 @@ import os
 !rm -rf CV-AGLA-Captioning
 
 # 1. Clone the integration branch
-!git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Captioning.git
+!git clone -b release https://github.com/RachalHys/CV-AGLA-Captioning.git
 %cd CV-AGLA-Captioning
 
 # 2. Install dependencies
@@ -82,7 +82,7 @@ Open your terminal and run:
 pip install torch==2.11.0 torchvision==0.26.0 torchaudio==2.11.0 \
 --extra-index-url https://download.pytorch.org/whl/cu128
 
-git clone -b llava-SAM-integration https://github.com/RachalHys/CV-AGLA-Captioning.git
+git clone -b release https://github.com/RachalHys/CV-AGLA-Captioning.git
 cd CV-AGLA-Captioning
 
 # Install libraries
@@ -96,8 +96,8 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptr
 
 ### Step 2: Run Inference
 *(Assuming your AMBER images are located in `AMBER/image`)*
-*eval_tas for our method; eval_agla for agla baseline.
-*EVAL_TAS:
+*eval_tas for our method; eval_baseline for agla baseline.
+*EVAL_tas:
 ```bash
 python eval_tas/run_llava.py \
     --image-folder images/ \
@@ -114,9 +114,9 @@ python eval_tas/run_llava.py \
     2>&1 | tee run_log_llava.txt
 ```
 
-*EVAL_AGLA:
+*EVAL_baseline:
 ```bash
-python eval_agla/run_llava.py \
+python eval_baseline/run_llava.py \
     --image-folder images/ \
     --question-file query.jsonl \
     --answers-file ./answer.jsonl \
